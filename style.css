@@ -124,3 +124,33 @@ body {
   font-size: 0.95rem;
   color: #ccc;
 }
+
+.project-thumb {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.project-thumb img {
+  width: 100%;
+  display: block;
+  transition: opacity 0.3s ease;
+  border-radius: 10px;
+}
+
+.project-thumb img.hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.project-thumb:hover img.static {
+  opacity: 0;
+}
+
+.project-thumb:hover img.hover {
+  opacity: 1;
+}
