@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>More actions
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -13,9 +13,12 @@
       <h1>Marc Joel Folgado Balbás</h1>
       <p>Game Programmer · C++ · Unreal Engine · Graphics</p>
 
+      <div class="project-highlight">
         <div class="project-card">
           <a href="#tiris">
             <div class="project-thumb">
+              <img src="img/tiris_static.png" alt="Tiris" class="static">
+              <img src="img/tiris_hover.gif" alt="Tiris Hover" class="hover">
               <img src="img/tiris_negro.png" alt="Tiris" class="static">
               <img src="img/tiris_blanco.png" alt="Tiris Hover" class="hover">
             </div>
@@ -42,53 +45,13 @@
 
   <section id="projects" class="projects">
     <h2>Proyectos</h2>
-    <div class="project-filters">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="cpp">C++</button>
-    <button class="filter-btn" data-filter="unreal">Unreal Engine</button>
-    <button class="filter-btn" data-filter="unity">Unity</button>
+    <div id="tiris">
+      <!-- Aquí irá el contenido ampliado del proyecto Tiris -->
     </div>
-
-<div class="project-list">
-  <div class="project-card project cpp unreal">
-    <h3>Tiris</h3>
-    <p>Juego en Unreal Engine 5.4.4. IA, gameplay, efectos visuales y más.</p>
-  </div>
-
-  <div class="project-card project cpp">
-    <h3>Raftel Engine</h3>
-    <p>Motor gráfico en C++ y OpenGL con ECS e iluminación.</p>
-  </div>
-
-  <div class="project-card project unity">
-    <h3>TRANKI TANKI</h3>
-    <p>Juego de oleadas</p>
-  </div>
-
-  <!-- Más proyectos aquí -->
+    <div id="raftel">
+      <!-- Aquí irá el contenido ampliado del proyecto Raftel -->
+    </div>
   </section>
-
-  <script>
-  const filterButtons = document.querySelectorAll(".filter-btn");
-  const projects = document.querySelectorAll(".project");
-
-  filterButtons.forEach(button => {
-    button.addEventListener("click", () => {
-      document.querySelector(".filter-btn.active").classList.remove("active");
-      button.classList.add("active");
-
-      const filter = button.getAttribute("data-filter");
-
-      projects.forEach(project => {
-        if (filter === "all" || project.classList.contains(filter)) {
-          project.style.display = "block";
-        } else {
-          project.style.display = "none";
-        }
-      });
-    });
-  });
-</script>
 
 </body>
 </html>
