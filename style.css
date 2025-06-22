@@ -13,25 +13,22 @@ body {
 /* LANDING */
 
 .landing {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;  /* Subir contenido hacia arriba */
   min-height: 100vh;
-  padding-top: 3rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Sube el contenido hacia arriba */
   text-align: center;
+  padding-top: 4rem; /* Más margen arriba */
 }
 
 .landing-content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 2rem;
   max-width: 1000px;
   width: 100%;
-  gap: 2rem;
 }
-
 
 
 /* Botón */
@@ -68,7 +65,14 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
-
+.highlight-card {
+  background-color: #222;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 400px;
+  text-align: left;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
 
 .project-card h3 {
   font-size: 1.5rem;
