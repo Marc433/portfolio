@@ -13,22 +13,25 @@ body {
 /* LANDING */
 
 .landing {
-  min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: flex-start; /* Sube el contenido hacia arriba */
+  justify-content: center;
+  align-items: flex-start;  /* Subir contenido hacia arriba */
+  min-height: 100vh;
+  padding-top: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   text-align: center;
-  padding-top: 4rem; /* Más margen arriba */
 }
 
 .landing-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
   max-width: 1000px;
   width: 100%;
+  gap: 2rem;
 }
+
 
 
 /* Botón */
