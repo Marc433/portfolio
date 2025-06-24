@@ -9,73 +9,53 @@
 <body>
 
   <section id="home" class="landing">
-    <div class="landing-content">
-      <h1>Marc Joel Folgado Balbás</h1>
-      <p>Game Programmer · C++ · Unreal Engine · Graphics</p>
+  <div class="overlay"></div>
 
-      <a href="marc_folgado_CV.pdf" class="btn" download>Download CV</a>
+  <div class="landing-content">
+    <h1>Marc Joel Folgado Balbás</h1>
+    <p>Game Programmer · C++ · Unreal Engine · Graphics</p>
 
-      <div class="project-highlight">
-        <div class="project-card">
-          <a href="#tiris">
-            <div class="project-thumb">
-              <img src="img/tiris_negro.png" alt="Tiris" class="static">
-              <img src="img/tiris_blanco.png" alt="Tiris Hover" class="hover">
-            </div>
-          </a>
-          <h3>Tiris</h3>
-          <p>Juego en Unreal Engine 5.4.4. IA, gameplay, efectos visuales y más.</p>
-        </div>
+    <a href="marc_folgado_CV.pdf" class="btn" download>Download CV</a>
 
-        <div class="project-card">
-  <a href="#tiris">
-    <div class="project-thumb youtube-hover">
-      <img src="img/tiris_negro.png" alt="Tiris" class="static">
+    <div class="project-highlight">
 
-      <iframe
-        class="hover-video"
-        src="https://www.youtube.com/embed/YOUTUBE_ID?autoplay=1&mute=1&controls=0&loop=1&playlist=YOUTUBE_ID"
-        frameborder="0"
-        allow="autoplay; encrypted-media"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </a>
-  <h3>Tiris</h3>
-  <p>Juego en Unreal Engine 5.4.4. IA, gameplay, efectos visuales y más.</p>
-</div>
+      <!-- TIRIS con vídeo de YouTube al hacer hover -->
+      <div class="project-card">
+        <a href="#tiris">
+          <div class="project-thumb youtube-hover">
+            <img src="img/tiris_negro.png" alt="Tiris" class="static">
 
-      <a href="#projects" class="btn">Ver proyectos</a>
-    </div>
-  </section>
+            <iframe
+              class="hover-video"
+              src="https://www.youtube.com/embed/b5XWvrQ4-S8?autoplay=1&mute=1&controls=0&loop=1&playlist=b5XWvrQ4-S8"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </a>
+        <h3>Tiris</h3>
+        <p>Juego en Unreal Engine 5.4.4. IA, gameplay, efectos visuales y más.</p>
+      </div>
 
-  <section id="projects" class="projects">
-    <h2>Proyectos</h2>
-    <div class="project-filters">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="cpp">C++</button>
-    <button class="filter-btn" data-filter="unreal">Unreal Engine</button>
-    <button class="filter-btn" data-filter="unity">Unity</button>
+      <!-- RAFTEL con hover clásico -->
+      <div class="project-card">
+        <a href="#raftel">
+          <div class="project-thumb">
+            <img src="img/tiris_blanco.png" alt="Raftel" class="static">
+            <img src="img/tiris_negro.png" alt="Raftel Hover" class="hover">
+          </div>
+        </a>
+        <h3>Raftel Engine</h3>
+        <p>Motor gráfico propio con ECS, OpenGL, iluminación y físicas.</p>
+      </div>
+
     </div>
 
-<div class="project-list">
-  <div class="project-card project cpp unreal">
-    <h3>Tiris</h3>
-    <p>Juego en Unreal Engine 5.4.4. IA, gameplay, efectos visuales y más.</p>
+    <a href="#projects" class="btn">Ver proyectos</a>
   </div>
+</section>
 
-  <div class="project-card project cpp">
-    <h3>Raftel Engine</h3>
-    <p>Motor gráfico en C++ y OpenGL con ECS e iluminación.</p>
-  </div>
-
-  <div class="project-card project unity">
-    <h3>TRANKI TANKI</h3>
-    <p>Juego de oleadas</p>
-  </div>
-
-  <!-- Más proyectos aquí -->
-  </section>
 
   <script>
   const filterButtons = document.querySelectorAll(".filter-btn");
@@ -97,18 +77,14 @@
       });
     });
   });
-</script>
-<script>
-  document.querySelectorAll('.video-hover').forEach(thumb => {
-    const video = thumb.querySelector('video');
 
-    thumb.addEventListener('mouseenter', () => {
-      video.currentTime = 0;
-      video.play();
-    });
+  document.querySelectorAll('.youtube-hover').forEach(thumb => {
+    const iframe = thumb.querySelector('iframe');
 
     thumb.addEventListener('mouseleave', () => {
-      video.pause();
+      const src = iframe.src;
+      iframe.src = '';
+      iframe.src = src;
     });
   });
 </script>
