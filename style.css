@@ -16,9 +16,9 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Sube el contenido hacia arriba */
+  justify-content: center;
   text-align: center;
-  padding-top: 4rem; /* Más margen arriba */
+  padding-top: 4rem;
 }
 
 .landing-content {
