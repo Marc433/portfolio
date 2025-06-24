@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <section id="home" class="landing">
+<section id="home" class="landing">
   <div class="overlay"></div>
 
   <div class="landing-content">
@@ -19,72 +19,75 @@
 
     <div class="project-highlight">
 
-      <!-- TIRIS con vídeo de YouTube al hacer hover -->
+      <!-- TIRIS DESTACADO (solo imagen con zoom) -->
       <div class="project-card zoom-on-hover">
-  <a href="#tiris">
-    <div class="project-thumb">
-      <img src="img/tiris_negro.png" alt="Tiris" class="static">
-    </div>
-  </a>
-  <h3>Tiris</h3>
-  <p>Juego en Unreal Engine 5.4.4. IA, gameplay, efectos visuales y más.</p>
-</div>
+        <a href="#tiris">
+          <div class="project-thumb">
+            <img src="img/tiris_negro.png" alt="Tiris" class="static">
+          </div>
+        </a>
+        <h3>Tiris</h3>
+        <p>Juego en Unreal Engine 5.4.4. IA, gameplay, efectos visuales y más.</p>
+      </div>
 
-<!-- RAFTEL DESTACADO (también con zoom) -->
-<div class="project-card zoom-on-hover">
-  <a href="#raftel">
-    <div class="project-thumb">
-      <img src="img/tiris_blanco.png" alt="Raftel" class="static">
-    </div>
-  </a>
-  <h3>Raftel Engine</h3>
-  <p>Motor gráfico propio con ECS, OpenGL, iluminación y físicas.</p>
-</div>
+      <!-- RAFTEL DESTACADO (solo imagen con zoom) -->
+      <div class="project-card zoom-on-hover">
+        <a href="#raftel">
+          <div class="project-thumb">
+            <img src="img/tiris_blanco.png" alt="Raftel" class="static">
+          </div>
+        </a>
+        <h3>Raftel Engine</h3>
+        <p>Motor gráfico propio con ECS, OpenGL, iluminación y físicas.</p>
+      </div>
 
     </div>
 
     <a href="#projects" class="btn">Ver proyectos</a>
   </div>
 </section>
-  <section id="projects" class="projects">
-    <h2>Proyectos</h2>
-    <div class="project-filters">
+
+<section id="projects" class="projects">
+  <h2>Proyectos</h2>
+  <div class="project-filters">
     <button class="filter-btn active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="cpp">C++</button>
     <button class="filter-btn" data-filter="unreal">Unreal Engine</button>
     <button class="filter-btn" data-filter="unity">Unity</button>
+  </div>
+
+  <div class="project-list">
+
+    <!-- TIRIS PROYECTOS (vídeo al hacer hover) -->
+    <div class="project-card project cpp unreal">
+      <div class="project-thumb youtube-hover">
+        <img src="img/tiris_negro.png" alt="Tiris" class="static">
+        <iframe
+          class="hover-video"
+          src="https://www.youtube.com/embed/b5XWvrQ4-S8?autoplay=1&mute=1&controls=0&loop=1&playlist=b5XWvrQ4-S8"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <h3>Tiris</h3>
+      <p>Juego en Unreal Engine 5.4.4. IA, gameplay, efectos visuales y más.</p>
     </div>
 
-<div class="project-card project cpp unreal youtube-hover">
-  <div class="project-thumb">
-    <img src="img/tiris_negro.png" alt="Tiris" class="static">
-    <iframe
-      class="hover-video"
-      src="https://www.youtube.com/embed/b5XWvrQ4-S8?autoplay=1&mute=1&controls=0&loop=1&playlist=b5XWvrQ4-S8"
-      frameborder="0"
-      allow="autoplay; encrypted-media"
-      allowfullscreen>
-    </iframe>
+    <div class="project-card project cpp">
+      <h3>Raftel Engine</h3>
+      <p>Motor gráfico en C++ y OpenGL con ECS e iluminación.</p>
+    </div>
+
+    <div class="project-card project unity">
+      <h3>TRANKI TANKI</h3>
+      <p>Juego de oleadas</p>
+    </div>
+
   </div>
-  <h3>Tiris</h3>
-  <p>Juego en Unreal Engine 5.4.4. IA, gameplay, efectos visuales y más.</p>
-</div>
+</section>
 
-
-  <div class="project-card project cpp">
-    <h3>Raftel Engine</h3>
-    <p>Motor gráfico en C++ y OpenGL con ECS e iluminación.</p>
-  </div>
-
-  <div class="project-card project unity">
-    <h3>TRANKI TANKI</h3>
-    <p>Juego de oleadas</p>
-  </div>
-
-  <!-- Más proyectos aquí -->
-  </section>
-
-  <script>
+<script>
   const filterButtons = document.querySelectorAll(".filter-btn");
   const projects = document.querySelectorAll(".project");
 
@@ -105,9 +108,9 @@
     });
   });
 
+  // Reiniciar iframe YouTube al salir del hover
   document.querySelectorAll('.youtube-hover').forEach(thumb => {
     const iframe = thumb.querySelector('iframe');
-
     thumb.addEventListener('mouseleave', () => {
       const src = iframe.src;
       iframe.src = '';

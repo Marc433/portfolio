@@ -19,12 +19,23 @@ body {
   justify-content: center;
   text-align: center;
   padding-top: 4rem;
-
   background-image: url('img/background.jpg'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed; 
+  position: relative;
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
 .landing-content {
@@ -34,10 +45,22 @@ body {
   gap: 2rem;
   max-width: 1000px;
   width: 100%;
-  margin-left: auto;   
-  margin-right: auto;  
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 2;
 }
 
+.landing-content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.landing-content p {
+  font-size: 1.5rem;
+  color: #ccc;
+}
 
 /* Botón */
 .btn {
@@ -67,13 +90,11 @@ body {
   background-color: #222;
   padding: 1.5rem;
   border-radius: 12px;
-  width: 400px; /* Aumentado */
-  min-height: 240px; /* Asegura altura mayor */
+  width: 400px;
+  min-height: 240px;
   text-align: left;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
 }
-
 
 .project-card h3 {
   font-size: 1.5rem;
@@ -85,12 +106,19 @@ body {
   color: #ccc;
 }
 
-/* Imágenes hover */
+/* Zoom al hacer hover */
+.project-card.zoom-on-hover {
+  transition: transform 0.3s ease;
+}
 
+.project-card.zoom-on-hover:hover {
+  transform: scale(1.05);
+}
+
+/* Imágenes */
 .project-thumb {
   position: relative;
   width: 100%;
-  height: auto;
   overflow: hidden;
   border-radius: 10px;
 }
@@ -98,23 +126,45 @@ body {
 .project-thumb img {
   width: 100%;
   display: block;
+  border-radius: 10px;
+}
+
+/* YouTube video hover para sección de proyectos */
+.project-thumb.youtube-hover {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.project-thumb.youtube-hover .static {
+  width: 100%;
+  display: block;
   transition: opacity 0.3s ease;
   border-radius: 10px;
 }
 
-.project-thumb img.hover {
+.hover-video {
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  border-radius: 10px;
+}
+
+.project-thumb.youtube-hover:hover .static {
   opacity: 0;
 }
 
-.project-thumb:hover img.static {
-  opacity: 0;
-}
-
-.project-thumb:hover img.hover {
+.project-thumb.youtube-hover:hover .hover-video {
   opacity: 1;
+  pointer-events: auto;
 }
 
 /* SECCIÓN PROYECTOS */
@@ -159,60 +209,4 @@ body {
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
-}
-
-.landing-content h1 {
-  font-size: 3.5rem;
-  font-weight: 800;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-}
-
-.landing-content p {
-  font-size: 1.5rem; 
-  color: #ccc;
-}
-
-.project-thumb.youtube-hover {
-  position: relative;
-  width: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-}
-
-.project-thumb.youtube-hover .static {
-  width: 100%;
-  display: block;
-  transition: opacity 0.3s ease;
-  border-radius: 10px;
-}
-
-.hover-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  border-radius: 10px;
-}
-
-.project-thumb.youtube-hover:hover .static {
-  opacity: 0;
-}
-
-.project-thumb.youtube-hover:hover .hover-video {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.project-card.zoom-on-hover {
-  transition: transform 0.3s ease;
-}
-
-.project-card.zoom-on-hover:hover {
-  transform: scale(1.05);
 }
