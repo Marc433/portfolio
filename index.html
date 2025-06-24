@@ -28,16 +28,22 @@
         </div>
 
         <div class="project-card">
-          <a href="#raftel">
-            <div class="project-thumb">
-              <img src="img/tiris_blanco.png" alt="Raftel" class="static">
-              <img src="img/tiris_negro.png" alt="Raftel Hover" class="hover">
-            </div>
-          </a>
-          <h3>Raftel Engine</h3>
-          <p>Motor gráfico propio con ECS, OpenGL, iluminación y físicas.</p>
-        </div>
-      </div>
+  <a href="#tiris">
+    <div class="project-thumb youtube-hover">
+      <img src="img/tiris_negro.png" alt="Tiris" class="static">
+
+      <iframe
+        class="hover-video"
+        src="https://www.youtube.com/embed/YOUTUBE_ID?autoplay=1&mute=1&controls=0&loop=1&playlist=YOUTUBE_ID"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </a>
+  <h3>Tiris</h3>
+  <p>Juego en Unreal Engine 5.4.4. IA, gameplay, efectos visuales y más.</p>
+</div>
 
       <a href="#projects" class="btn">Ver proyectos</a>
     </div>
@@ -89,6 +95,20 @@
           project.style.display = "none";
         }
       });
+    });
+  });
+</script>
+<script>
+  document.querySelectorAll('.video-hover').forEach(thumb => {
+    const video = thumb.querySelector('video');
+
+    thumb.addEventListener('mouseenter', () => {
+      video.currentTime = 0;
+      video.play();
+    });
+
+    thumb.addEventListener('mouseleave', () => {
+      video.pause();
     });
   });
 </script>
