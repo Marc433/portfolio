@@ -154,3 +154,14 @@ body {
   gap: 2rem;
   justify-content: center;
 }
+
+.landing-content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.landing-content p {
+  font-size: 1.5rem; 
+  color: #ccc;
+}
