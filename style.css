@@ -16,9 +16,9 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Sube el contenido hacia arriba */
+  justify-content: center;
   text-align: center;
-  padding-top: 4rem; /* Más margen arriba */
+  padding: 2rem;
 }
 
 .landing-content {
@@ -29,7 +29,6 @@ body {
   max-width: 1000px;
   width: 100%;
 }
-
 
 /* Botón */
 .btn {
@@ -57,23 +56,20 @@ body {
 
 .project-card {
   background-color: #222;
-  padding: 1.5rem;
-  border-radius: 12px;
-  width: 400px; /* Aumentado */
-  min-height: 240px; /* Asegura altura mayor */
+  padding: 1rem;
+  border-radius: 10px;
+  width: 300px;
   text-align: left;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
-
 .project-card h3 {
-  font-size: 1.5rem;
-  margin-top: 1rem;
+  margin: 0.5rem 0;
+  font-size: 1.3rem;
 }
 
 .project-card p {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: #ccc;
 }
 
@@ -120,35 +116,4 @@ body {
 .projects h2 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
-}
-
-.project-filters {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-}
-
-.filter-btn {
-  background-color: #333;
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.filter-btn:hover,
-.filter-btn.active {
-  background-color: #ff4d4d;
-}
-
-.project-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
 }
