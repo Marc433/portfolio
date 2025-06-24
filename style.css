@@ -209,3 +209,10 @@ body {
   pointer-events: auto;
 }
 
+.project-card.zoom-on-hover {
+  transition: transform 0.3s ease;
+}
+
+.project-card.zoom-on-hover:hover {
+  transform: scale(1.05);
+}
