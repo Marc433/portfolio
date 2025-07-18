@@ -13,6 +13,13 @@ body {
     margin: auto;
 }
 
+    .section.fullscreen {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
 h1, h2, h3 {
     color: #ffffff;
 }
@@ -77,6 +84,7 @@ p {
     display: flex;
     gap: 1rem;
     margin-bottom: 2rem;
+    flex-wrap: wrap;
 }
 
     .filters button {
@@ -105,6 +113,7 @@ p {
     border-radius: 6px;
     transition: transform 0.2s ease;
     cursor: pointer;
+    position: relative;
 }
 
     .project-box:hover {
@@ -114,13 +123,23 @@ p {
     .project-box video {
         width: 100%;
         border-radius: 4px;
+        display: none;
     }
 
 .project-info {
     margin-top: 0.5rem;
 }
 
-/* Project Details */
+/* Project Details (initially hidden) */
+.project-detail {
+    display: none;
+    padding-top: 4rem;
+}
+
+    .project-detail.active {
+        display: block;
+    }
+
 .details-header {
     display: flex;
     flex-direction: column;
