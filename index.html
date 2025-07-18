@@ -104,14 +104,18 @@
 
         function showProjectDetails(id) {
             projectDetails.classList.remove('hidden');
+            projectDetails.classList.add('visible');
             sectionsToHide.forEach(section => section.style.display = 'none');
             window.scrollTo(0, 0);
         }
 
+
         returnBtn.addEventListener('click', () => {
             projectDetails.classList.add('hidden');
+            projectDetails.classList.remove('visible');
             sectionsToHide.forEach(section => section.style.display = 'block');
         });
+
     </script>
 </body>
 </html>
