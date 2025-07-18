@@ -48,7 +48,8 @@
         </div>
     </section>
 
-    <section id="project-details" class="section hidden">
+    <section id="project-details" class="overlay hidden">
+        <button id="return-btn">← Return</button>
         <div class="details-header">
             <img src="images/TirisCover.jpg" alt="Tiris Cover" />
             <div>
@@ -97,10 +98,20 @@
             });
         }
 
-        function showProjectDetails(projectId) {
-            document.getElementById('project-details').classList.remove('hidden');
-            document.getElementById('project-details').scrollIntoView({ behavior: 'smooth' });
+        const projectDetails = document.getElementById('project-details');
+        const returnBtn = document.getElementById('return-btn');
+        const sectionsToHide = [document.getElementById('home'), document.getElementById('projects'), document.getElementById('about')];
+
+        function showProjectDetails(id) {
+            projectDetails.classList.remove('hidden');
+            sectionsToHide.forEach(section => section.style.display = 'none');
+            window.scrollTo(0, 0);
         }
+
+        returnBtn.addEventListener('click', () => {
+            projectDetails.classList.add('hidden');
+            sectionsToHide.forEach(section => section.style.display = 'block');
+        });
     </script>
 </body>
 </html>
