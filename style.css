@@ -1,184 +1,143 @@
-// pages/index.tsx
-
-"use client";
-
-import {
-    useState
+/* Reset básico */
+body, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-from "react";
-import {
-    Button
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #121212;
+    color: #f0f0f0;
+    line-height: 1.6;
 }
 
-from "@/components/ui/button";
-import {
-    Card, CardContent
+a {
+    color: #f0f0f0;
+    text-decoration: none;
 }
 
-from "@/components/ui/card";
-import {
-    Tabs, TabsList, TabsTrigger, TabsContent
+.section {
+    padding: 80px 20px;
 }
 
-from "@/components/ui/tabs";
-import {
-    motion
+.navbar {
+    background-color: #1e1e1e;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-from "framer-motion";
-import {
-    Input
-}
-
-from "@/components/ui/input";
-
-export default function Portfolio() {
-    const [activeTab, setActiveTab] = useState("all");
-    const [selectedProject, setSelectedProject] = useState(null);
-    const projects = [
-    {
-      title: "Tiris",
-      filters: ["all", "unreal", "cpp"],
-      video: "TirisPreview.mp4", // placeholder, to be replaced
-      cover: "TirisCover.jpg", // placeholder, to be replaced
-      shortDescription:
-        "Steam-published top-down shooter developed in Unreal Engine 5.",
-      fullDescription:
-        "Tiris is a dark-themed top-down shooter created at Cremaet Studios. It features enemy AI, item pickup and drop systems, Steam achievements, and UI elements like tutorial boxes and intro videos.",
-      details: [
-        {
-          video: "PickupsSystem.mp4",
-          description:
-            "Pickup and drop system: DropComponent for entities and InventoryComponent for the player."
-        },
-        {
-          video: "EnemyAI.mp4",
-          description:
-            "Enemy AI: Designed behaviors and components for 3 unique enemy types."
-        },
-        {
-          video: "SteamAchievements.mp4",
-          description:
-            "Integrated Steam achievements using Unreal Engine subsystem."
-        },
-        {
-          video: "UI_Tutorials.mp4",
-          description:
-            "UI work: Tutorial boxes and introductory cutscenes with video integration."
-        }
-      ]
+    .navbar ul {
+        display: flex;
+        gap: 20px;
+        list-style: none;
     }
-  ];
-    const filteredProjects = projects.filter(p => p.filters.includes(activeTab) );
-    return (
-    <main className="min-h-screen bg-zinc-900 text-white">
-      {/* Home */}
-      <section
-        id="home"
-        className="min-h-screen flex flex-col justify-center items-center px-8"
-      >
-        <div className="max-w-3xl text-center">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Hi, I'm Marc.</h1>
-          <p className="text-md md:text-lg text-zinc-300">
-            Game programmer specialized in Unreal Engine 5 and C++. Passionate about gameplay
-            systems, custom engines, and building player-focused experiences.
-          </p>
-          <Button className="mt-6">Download CV</Button>
-        </div>
-      </section>
 
-      {/* My Projects */}
-      <section id="projects" className="px-8 py-16">
-        <h2 className="text-2xl font-bold mb-6">My Projects</h2>
-
-        <Tabs value={activeTab} onValueChange={setActiveTab}>
-          <TabsList className="mb-6">
-            <TabsTrigger value="all">All</TabsTrigger>
-            <TabsTrigger value="unreal">Unreal Engine</TabsTrigger>
-            <TabsTrigger value="cpp">C++</TabsTrigger>
-            <TabsTrigger value="unity">Unity</TabsTrigger>
-          </TabsList>
-        </Tabs>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project, index) => (
-            <Card
-              key={index}
-              onClick={() => setSelectedProject(project)}
-              className="cursor-pointer bg-zinc-800 hover:bg-zinc-700 transition-all"
-            >
-              <CardContent className="p-4">
-                <video
-                  src={project.video}
-                  muted
-                  loop
-                  preload="none"
-                  onMouseOver={e => e.currentTarget.play()}
-                  onMouseOut={e => e.currentTarget.pause()}
-                  className="w-full rounded mb-3"
-                />
-                <h3 className="text-lg font-semibold mb-1">{project.title}</h3>
-                <p className="text-zinc-400 text-sm">
-                  {project.shortDescription}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* Project Detail View (separated view style) */}
-      {selectedProject && (
-        <section className="fixed inset-0 z-50 bg-zinc-900 overflow-y-auto px-6 py-10">
-          <Button
-            variant="outline"
-            className="mb-6"
-            onClick={() => setSelectedProject(null)}
-          >
-            ← Back to Projects
-          </Button>
-
-          <div className="flex flex-col lg:flex-row gap-10">
-            <img
-              src={selectedProject.cover}
-              alt={`${selectedProject.title} Cover`}
-              className="w-full lg:w-1/2 rounded shadow"
-            />
-            <div>
-              <h3 className="text-2xl font-bold mb-4">
-                {selectedProject.title}
-              </h3>
-              <p className="mb-6 text-zinc-300">
-                {selectedProject.fullDescription}
-              </p>
-              <div className="space-y-6">
-                {selectedProject.details.map((d, idx) => (
-                  <div key={idx} className="flex flex-col lg:flex-row gap-4">
-                    <video
-                      src={d.video}
-                      controls
-                      className="w-full lg:w-1/2 rounded"
-                    />
-                    <p className="text-zinc-400 lg:w-1/2">{d.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* About Me */}
-      <section id="about" className="px-8 py-16">
-        <h2 className="text-2xl font-bold mb-4">About Me</h2>
-        <p className="text-zinc-300">
-          I'm a game programmer who enjoys building technical systems that bring gameplay ideas
-          to life. With experience in Unreal Engine, C++, custom graphics engines and mobile
-          development, I love collaborating with multidisciplinary teams to deliver polished and
-          engaging experiences.
-        </p>
-      </section>
-    </main>
-  );
+.btn {
+    background-color: #333;
+    color: #f0f0f0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
 }
+
+    .btn:hover {
+        background-color: #444;
+    }
+
+.intro {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 100px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.filters {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+    .filters button {
+        margin: 0 10px;
+        background-color: #2b2b2b;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+        .filters button:hover {
+            background-color: #444;
+        }
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.project-box {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+    .project-box:hover {
+        transform: scale(1.02);
+    }
+
+    .project-box video {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+.project-info {
+    padding: 10px 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+.details-header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+    .details-header img {
+        max-width: 100%;
+        border-radius: 10px;
+    }
+
+.details-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.details-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+    .details-block video {
+        width: 100%;
+        border-radius: 10px;
+    }
