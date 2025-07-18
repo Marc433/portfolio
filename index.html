@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Marc Folgado - Game Programmer</title>
+    <title>Marc Folgado - Portfolio</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <h1>Marc Folgado</h1>
+        <h1>Marc Folgado</h1>
+        <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#projects">My Projects</a></li>
@@ -18,104 +18,70 @@
         </nav>
     </header>
 
-    <section id="home" class="section">
-        <div class="intro">
-            <h2>Hi, I'm Marc.</h2>
-            <p>
-                Game programmer specialized in Unreal Engine 5 and C++. Passionate about gameplay systems,
-                custom engines, and building player-focused experiences.
-            </p>
-            <a href="Marc_Folgado_CV.pdf" class="btn" download>Download CV</a>
-        </div>
+    <section id="home" class="fullscreen-section">
+        <h2>Hi, I'm Marc.</h2>
+        <p>Game programmer specialized in Unreal Engine 5 and C++. Passionate about gameplay systems, custom engines, and building player-focused experiences.</p>
+        <a href="#" class="btn">Download CV</a>
     </section>
 
-    <section id="projects" class="section">
+    <section id="projects">
         <h2>My Projects</h2>
         <div class="filters">
-            <button onclick="filterProjects('all')">All</button>
-            <button onclick="filterProjects('unreal')">Unreal Engine</button>
-            <button onclick="filterProjects('cpp')">C++</button>
-            <button onclick="filterProjects('unity')">Unity</button>
+            <button>All</button>
+            <button>Unreal Engine</button>
+            <button>C++</button>
+            <button>Unity</button>
         </div>
-        <div class="projects-grid" id="projectsGrid">
-            <div class="project-box" data-tags="all unreal cpp" onclick="showProjectDetails('tiris')">
-                <video src="videos/TirisPreview.mp4" muted loop></video>
-                <div class="project-info">
+        <div class="project-card" onclick="openProjectDetail('tiris-detail')">
+            <img src="tiris-cover.png" alt="Tiris Cover">
+            <h3>Tiris</h3>
+            <p>Steam-published top-down shooter developed in Unreal Engine 5.</p>
+        </div>
+    </section>
+
+    <!-- TIRIS DETAIL VIEW -->
+    <div id="tiris-detail" class="project-detail hidden">
+        <button class="return-btn" onclick="closeProjectDetail()">← Return</button>
+        <div class="project-detail-content">
+            <div class="intro">
+                <img src="tiris-cover.png" alt="Tiris Cover">
+                <div>
                     <h3>Tiris</h3>
-                    <p>Steam-published top-down shooter developed in Unreal Engine 5.</p>
+                    <p>Tiris is a dark-themed top-down shooter created at Cremat Studios. It features enemy AI, item pickup and drop systems, Steam achievements, and UI elements like tutorial boxes and intro videos.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="project-details" class="overlay hidden">
-        <button id="return-btn">← Return</button>
-        <div class="details-header">
-            <img src="images/TirisCover.jpg" alt="Tiris Cover" />
-            <div>
-                <h3>Tiris</h3>
-                <p>
-                    Tiris is a dark-themed top-down shooter created at Cremaet Studios.
-                    It features enemy AI, item pickup and drop systems, Steam achievements,
-                    and UI elements like tutorial boxes and intro videos.
-                </p>
+            <div class="project-section">
+                <h4>Pickup and Drop System</h4>
+                <video controls>
+                    <source src="pickup-drop.mp4" type="video/mp4" />
+                </video>
+            </div>
+            <div class="project-section">
+                <h4>Enemy AI</h4>
+                <video controls>
+                    <source src="enemy-ai.mp4" type="video/mp4" />
+                </video>
+            </div>
+            <div class="project-section">
+                <h4>Steam Achievements</h4>
+                <video controls>
+                    <source src="steam-achievements.mp4" type="video/mp4" />
+                </video>
             </div>
         </div>
-        <div class="details-content">
-            <div class="details-block">
-                <video src="videos/PickupsSystem.mp4" controls></video>
-                <p>Pickup and drop system: DropComponent for entities and InventoryComponent for the player.</p>
-            </div>
-            <div class="details-block">
-                <video src="videos/EnemyAI.mp4" controls></video>
-                <p>Enemy AI: Designed behaviors and components for 3 unique enemy types.</p>
-            </div>
-            <div class="details-block">
-                <video src="videos/SteamAchievements.mp4" controls></video>
-                <p>Integrated Steam achievements using Unreal Engine subsystem.</p>
-            </div>
-            <div class="details-block">
-                <video src="videos/UI_Tutorials.mp4" controls></video>
-                <p>UI work: Tutorial boxes and introductory cutscenes with video integration.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="section">
-        <h2>About Me</h2>
-        <p>
-            I'm a game programmer who enjoys building technical systems that bring gameplay ideas to life. With experience in
-            Unreal Engine, C++, custom graphics engines and mobile development, I love collaborating with multidisciplinary teams
-            to deliver polished and engaging experiences.
-        </p>
-    </section>
+    </div>
 
     <script>
-        function filterProjects(tag) {
-            const projects = document.querySelectorAll('.project-box');
-            projects.forEach(p => {
-                p.style.display = p.dataset.tags.includes(tag) || tag === 'all' ? 'block' : 'none';
-            });
+        function openProjectDetail(id) {
+            document.getElementById('projects').style.display = 'none';
+            document.getElementById('home').style.display = 'none';
+            document.getElementById(id).classList.remove('hidden');
         }
-
-        const projectDetails = document.getElementById('project-details');
-        const returnBtn = document.getElementById('return-btn');
-        const sectionsToHide = [document.getElementById('home'), document.getElementById('projects'), document.getElementById('about')];
-
-        function showProjectDetails(id) {
-            projectDetails.classList.remove('hidden');
-            projectDetails.classList.add('visible');
-            sectionsToHide.forEach(section => section.style.display = 'none');
-            window.scrollTo(0, 0);
+        function closeProjectDetail() {
+            document.getElementById('projects').style.display = 'block';
+            document.getElementById('home').style.display = 'block';
+            document.querySelector('.project-detail').classList.add('hidden');
         }
-
-
-        returnBtn.addEventListener('click', () => {
-            projectDetails.classList.add('hidden');
-            projectDetails.classList.remove('visible');
-            sectionsToHide.forEach(section => section.style.display = 'block');
-        });
-
     </script>
 </body>
 </html>
