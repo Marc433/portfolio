@@ -373,3 +373,39 @@ a {
         text-shadow: 0 0 25px #0f0;
     }
 }
+
+/* Ajustes a los videos de detalles */
+.details-content .details-block {
+    margin-bottom: 40px;
+    padding: 0 20px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.details-content video {
+    width: 100%;
+    max-height: 400px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* Botón de return siempre visible en esquina inferior izquierda */
+#return-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+    background-color: #0f0;
+    color: #000;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #0f0;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+    #return-btn:hover {
+        background-color: #0c0;
+    }

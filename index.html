@@ -99,25 +99,20 @@
     </section>
 
     <script>
-        function filterProjects(tag) {
-            const projects = document.querySelectorAll('.project-box');
-            projects.forEach(p => {
-                p.style.display = p.dataset.tags.includes(tag) || tag === 'all' ? 'block' : 'none';
-            });
-        }
-
         const projectDetails = document.getElementById('project-details');
         const returnBtn = document.getElementById('return-btn');
         const sectionsToHide = [document.getElementById('home'), document.getElementById('projects'), document.getElementById('about')];
 
         function showProjectDetails(id) {
-            projectDetails.classList.remove('hidden');
+            if (id === 'tiris') {
+                document.getElementById('project-details').classList.add('visible');
+            }
             sectionsToHide.forEach(section => section.style.display = 'none');
             window.scrollTo(0, 0);
         }
 
         returnBtn.addEventListener('click', () => {
-            projectDetails.classList.add('hidden');
+            document.getElementById('project-details').classList.remove('visible');
             sectionsToHide.forEach(section => section.style.display = 'block');
         });
     </script>
