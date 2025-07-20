@@ -74,7 +74,8 @@
     </section>
 
     <section id="project-tiris" class="overlay hidden project-details">
-        <button id="return-btn">← Return</button>
+        <button class="return-btn">← Return</button>
+
 
         <div class="details-header">
             <img src="images/TirisCover.jpg" alt="Tiris Cover" />
@@ -108,7 +109,8 @@
     </section>
     <!-- Raftel Engine Section -->
     <section id="project-raftel" class="overlay hidden project-details">
-        <button id="return-btn">← Return</button>
+        <button class="return-btn">← Return</button>
+
 
         <div class="project-detail">
             <img src="images/raftel-cover.jpg" alt="Raftel Engine Cover" />
@@ -127,7 +129,8 @@
 
     <!-- TrankiTanki Section -->
     <section id="project-trankitanki" class="overlay hidden project-details">
-        <button id="return-btn">← Return</button>
+        <button class="return-btn">← Return</button>
+
 
         <div class="project-detail">
             <img src="images/trankitanki-cover.jpg" alt="TrankiTanki Cover" />
@@ -176,19 +179,22 @@
             });
         });
 
-        // Botón de Return
-        document.getElementById('return-btn').addEventListener('click', () => {
-            // Mostrar contenido general
-            document.querySelector('#home').style.display = 'flex';
-            document.querySelector('#projects').style.display = 'block';
-            document.querySelector('#about').style.display = 'block';
+        // Botones de Return
+        document.querySelectorAll('.return-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Mostrar contenido general
+                document.querySelector('#home').style.display = 'flex';
+                document.querySelector('#projects').style.display = 'block';
+                document.querySelector('#about').style.display = 'block';
 
-            // Ocultar secciones de proyecto
-            document.querySelectorAll('.project-details').forEach(section => {
-                section.classList.remove('visible');
+                // Ocultar secciones de proyecto
+                document.querySelectorAll('.project-details').forEach(section => {
+                    section.classList.remove('visible');
+                });
             });
         });
     </script>
+
 
 
 
