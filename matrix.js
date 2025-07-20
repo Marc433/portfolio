@@ -1,4 +1,3 @@
-// matrix.js
 const canvas = document.createElement("canvas");
 canvas.id = "matrix";
 document.body.appendChild(canvas);
@@ -8,32 +7,40 @@ canvas.style.position = "fixed";
 canvas.style.top = 0;
 canvas.style.left = 0;
 canvas.style.zIndex = -1;
-canvas.style.opacity = 0.2;
+canvas.style.opacity = 0.15;
+canvas.style.pointerEvents = "none";
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
 
 const letters = "01";
-const fontSize = 14;
-const columns = canvas.width / fontSize;
-const drops = Array(Math.floor(columns)).fill(1);
+const fontSize = 16;
+const columns = Math.floor(window.innerWidth / fontSize);
+const drops = Array(columns).fill(1);
 
 function drawMatrix() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    // Ajusta opacidad para que la estela sea más larga (menos parpadeo)
+    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#0f0";
-    ctx.font = fontSize + "px monospace";
-    drops.forEach((y, i) => {
-        const text = letters.charAt(Math.floor(Math.random() * letters.length));
-        const x = i * fontSize;
-        ctx.fillText(text, x, y * fontSize);
-        drops[i] = y * fontSize > canvas.height && Math.random() > 0.975 ? 0 : y + 1;
-    });
-}
 
-//window.addEventListener("resize", () => {
-//    canvas.width = window.innerWidth;
-//    canvas.height = window.innerHeight;
-//});
+    ctx.fillStyle = "#0F0"; // Verde matrix
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        // Reiniciar caída con menos agresividad
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+        }
+
+        drops[i]++;
+    }
+}
 
 setInterval(drawMatrix, 50);
