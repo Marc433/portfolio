@@ -31,4 +31,9 @@ function drawMatrix() {
     });
 }
 
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+
 setInterval(drawMatrix, 50);
