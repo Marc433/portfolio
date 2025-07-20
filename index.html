@@ -53,41 +53,65 @@
                     <p>Steam-published top-down shooter developed in Unreal Engine 5.</p>
                 </div>
             </div>
+            <div class="project-box" data-tags="all cpp" onclick="showProjectDetails('raftel')">
+                <video src="videos/RaftelPreview.mp4" muted loop></video>
+                <div class="project-info">
+                    <h3>Raftel Engine</h3>
+                    <p>Motor propio desde 0</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="project-details" class="overlay hidden">
-        <button id="return-btn">← Return</button>
-        <div class="details-header">
-            <img src="images/TirisCover.jpg" alt="Tiris Cover" />
-            <div>
-                <h3>Tiris</h3>
-                <p>
-                    Tiris is a dark-themed top-down shooter created at Cremaet Studios.
-                    It features enemy AI, item pickup and drop systems, Steam achievements,
-                    and UI elements like tutorial boxes and intro videos.
-                </p>
+    <!-- Project Details Overlay -->
+    <div id="project-details" class="overlay">
+        <button id="return-btn" onclick="closeProject()">← Return</button>
+
+        <div id="tiris-details" class="project-detail visible">
+            <div class="details-header">
+                <img src="images/tiris_cover.jpg" alt="Tiris Cover" />
+                <div>
+                    <h3>Tiris – 3D Action Platformer</h3>
+                    <p>Developed in Unreal Engine 5.4 as part of the final project at ESAT. I worked as one of the core gameplay programmers for this hack-and-slash action title.</p>
+                </div>
+            </div>
+
+            <div class="details-content">
+                <div class="details-block">
+                    <video src="videos/tiris_pickups.mp4" controls></video>
+                    <p><strong>Pickup & Drop System:</strong> I developed the component-based system that handles entity drops and pickups, as well as the player inventory and all power-up logic.</p>
+                </div>
+
+                <div class="details-block">
+                    <video src="videos/tiris_ai.mp4" controls></video>
+                    <p><strong>Enemy AI:</strong> I programmed 3 out of 6 enemy behaviors and created the base Enemy script, with configurable components and attack logic.</p>
+                </div>
             </div>
         </div>
-        <div class="details-content">
-            <div class="details-block">
-                <video src="videos/PickupsSystem.mp4" controls></video>
-                <p>Pickup and drop system: DropComponent for entities and InventoryComponent for the player.</p>
+
+        <div id="raftel-details" class="project-detail">
+            <div class="details-header">
+                <img src="images/raftel_cover.jpg" alt="Raftel Engine Cover" />
+                <div>
+                    <h3>Raftel Engine – Custom 3D Engine</h3>
+                    <p>A custom graphics engine built from scratch in C++ with OpenGL. Includes a real-time editor via ImGui, lighting with shadows, entity picking, HDR & Bloom, and basic physics.</p>
+                </div>
             </div>
-            <div class="details-block">
-                <video src="videos/EnemyAI.mp4" controls></video>
-                <p>Enemy AI: Designed behaviors and components for 3 unique enemy types.</p>
-            </div>
-            <div class="details-block">
-                <video src="videos/SteamAchievements.mp4" controls></video>
-                <p>Integrated Steam achievements using Unreal Engine subsystem.</p>
-            </div>
-            <div class="details-block">
-                <video src="videos/UI_Tutorials.mp4" controls></video>
-                <p>UI work: Tutorial boxes and introductory cutscenes with video integration.</p>
+
+            <div class="details-content">
+                <div class="details-block">
+                    <video src="videos/raftel_entities.mp4" controls></video>
+                    <p><strong>Entity System:</strong> Designed the ECS-style architecture with entity picking and transform updates.</p>
+                </div>
+
+                <div class="details-block">
+                    <video src="videos/raftel_lighting.mp4" controls></video>
+                    <p><strong>Lighting & Visual Effects:</strong> Implemented dynamic shadows, HDR rendering, bloom, PBR lighting, and real-time post-processing.</p>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+
 
     <section id="about" class="section">
         <h2>About Me</h2>
@@ -99,32 +123,24 @@
     </section>
 
     <script>
-        function filterProjects(tag) {
-            const projects = document.querySelectorAll('.project-box');
-            projects.forEach(p => {
-                p.style.display = p.dataset.tags.includes(tag) || tag === 'all' ? 'block' : 'none';
+        function showProjectDetails(projectId) {
+            const details = document.getElementById("project-details");
+            details.classList.add("visible");
+
+            // Oculta todos los proyectos
+            document.querySelectorAll(".project-detail").forEach(p => {
+                p.classList.remove("visible");
             });
+
+            // Muestra solo el seleccionado
+            document.getElementById(projectId).classList.add("visible");
         }
 
-        const projectDetails = document.getElementById('project-details');
-        const returnBtn = document.getElementById('return-btn');
-        const sectionsToHide = [document.getElementById('home'), document.getElementById('projects'), document.getElementById('about')];
-
-        function showProjectDetails(id) {
-            projectDetails.classList.remove('hidden');
-            projectDetails.classList.add('visible');
-            sectionsToHide.forEach(section => section.style.display = 'none');
-            window.scrollTo(0, 0);
+        function closeProject() {
+            document.getElementById("project-details").classList.remove("visible");
         }
-
-
-        returnBtn.addEventListener('click', () => {
-            projectDetails.classList.add('hidden');
-            projectDetails.classList.remove('visible');
-            sectionsToHide.forEach(section => section.style.display = 'block');
-        });
-
     </script>
+
     <script src="matrix.js"></script>
 </body>
 </html>
