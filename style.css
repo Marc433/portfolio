@@ -406,6 +406,12 @@ a {
     transition: background-color 0.3s;
 }
 
-    #return-btn:hover {
-        background-color: #0c0;
-    }
+#return-btn:hover {
+    background-color: #0c0;
+}
+
+.project-details.visible {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
