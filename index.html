@@ -3,144 +3,143 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Marc Folgado - Game Programmer</title>
+    <title>Marc Folgado Portfolio</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+    <canvas id="matrix-canvas"></canvas>
+
     <header>
-        <nav class="navbar">
-            <h1>Marc Folgado</h1>
+        <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#projects">My Projects</a></li>
-                <li><a href="#about">About Me</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="home" class="fullscreen-section home-layout">
+    <section id="home">
         <div class="home-content">
-            <div class="text-area">
-                <h1 class="main-name">Marc Folgado</h1>
-                <h2 class="role">Game Programmer & Systems Developer</h2>
-                <p class="summary">
-                    Specialized in Unreal Engine 5 and C++. Focused on gameplay systems, custom engines, and player-centered experiences.
-                </p>
-                <a href="#" class="btn download-btn">Download CV</a>
-            </div>
-            <div class="joystick-container">
-                <div class="joystick">
-                    <div class="stick"></div>
-                    <div class="base"></div>
-                </div>
-            </div>
+            <h1>Marc Folgado</h1>
+            <h2>Game Programmer</h2>
+            <p>Unreal Engine / C++ / Gameplay / Graphics</p>
+            <a href="Marc_Folgado_CV.pdf" class="cv-button" download>Download CV</a>
+        </div>
+        <div class="floating-joystick">
+            <div class="stick"></div>
         </div>
     </section>
 
-    <section id="projects" class="section">
-        <h2>My Projects</h2>
-        <div class="filters">
+    <section id="projects">
+        <h2 class="section-title">My Projects</h2>
+
+        <div class="project-filters">
             <button onclick="filterProjects('all')">All</button>
             <button onclick="filterProjects('unreal')">Unreal Engine</button>
             <button onclick="filterProjects('cpp')">C++</button>
             <button onclick="filterProjects('unity')">Unity</button>
         </div>
-        <div class="projects-grid" id="projectsGrid">
-            <div class="project-box" data-tags="all unreal cpp" onclick="showProjectDetails('tiris')">
-                <video src="videos/TirisPreview.mp4" muted loop></video>
-                <div class="project-info">
-                    <h3>Tiris</h3>
-                    <p>Steam-published top-down shooter developed in Unreal Engine 5.</p>
-                </div>
+
+        <div class="project-grid">
+            <div class="project-card" data-category="all unreal cpp" onclick="showProjectDetails('tiris')">
+                <video src="media/tiris_preview.mp4" muted loop></video>
+                <div class="project-title">Tiris</div>
             </div>
-            <div class="project-box" data-tags="all cpp" onclick="showProjectDetails('raftel')">
-                <video src="videos/RaftelPreview.mp4" muted loop></video>
-                <div class="project-info">
-                    <h3>Raftel Engine</h3>
-                    <p>Motor propio desde 0</p>
-                </div>
+
+            <div class="project-card" data-category="all cpp" onclick="showProjectDetails('raftel')">
+                <video src="media/raftel_preview.mp4" muted loop></video>
+                <div class="project-title">Raftel Engine</div>
             </div>
         </div>
     </section>
 
-    <!-- Project Details Overlay -->
-    <div id="project-details" class="overlay">
-        <button id="return-btn" onclick="closeProject()">← Return</button>
+    <section id="project-details">
+        <button id="return-btn" onclick="closeProject()">Return</button>
 
-        <div id="tiris-details" class="project-detail visible">
+        <div id="tiris-details" class="project-detail">
             <div class="details-header">
-                <img src="images/tiris_cover.jpg" alt="Tiris Cover" />
+                <img src="media/tiris_cover.jpg" alt="Tiris Cover" />
                 <div>
-                    <h3>Tiris – 3D Action Platformer</h3>
-                    <p>Developed in Unreal Engine 5.4 as part of the final project at ESAT. I worked as one of the core gameplay programmers for this hack-and-slash action title.</p>
+                    <h2>Tiris</h2>
+                    <p>Action-adventure game developed in Unreal Engine 5 as part of my final project at ESAT.</p>
                 </div>
             </div>
 
             <div class="details-content">
                 <div class="details-block">
-                    <video src="videos/tiris_pickups.mp4" controls></video>
-                    <p><strong>Pickup & Drop System:</strong> I developed the component-based system that handles entity drops and pickups, as well as the player inventory and all power-up logic.</p>
+                    <video src="media/tiris_pickups.mp4" controls></video>
+                    <p>Designed and implemented the full pickup & drop system using component-based architecture.</p>
                 </div>
-
                 <div class="details-block">
-                    <video src="videos/tiris_ai.mp4" controls></video>
-                    <p><strong>Enemy AI:</strong> I programmed 3 out of 6 enemy behaviors and created the base Enemy script, with configurable components and attack logic.</p>
+                    <video src="media/tiris_ai.mp4" controls></video>
+                    <p>Programmed enemy AI, state behavior and Steam achievements integration.</p>
                 </div>
             </div>
         </div>
 
         <div id="raftel-details" class="project-detail">
             <div class="details-header">
-                <img src="images/raftel_cover.jpg" alt="Raftel Engine Cover" />
+                <img src="media/raftel_cover.jpg" alt="Raftel Cover" />
                 <div>
-                    <h3>Raftel Engine – Custom 3D Engine</h3>
-                    <p>A custom graphics engine built from scratch in C++ with OpenGL. Includes a real-time editor via ImGui, lighting with shadows, entity picking, HDR & Bloom, and basic physics.</p>
+                    <h2>Raftel Engine</h2>
+                    <p>Custom 3D graphics engine written in C++ and OpenGL, with entity system, editor UI, dynamic lights & shadows.</p>
                 </div>
             </div>
 
             <div class="details-content">
                 <div class="details-block">
-                    <video src="videos/raftel_entities.mp4" controls></video>
-                    <p><strong>Entity System:</strong> Designed the ECS-style architecture with entity picking and transform updates.</p>
+                    <video src="media/raftel_rendering.mp4" controls></video>
+                    <p>Implemented support for HDR rendering, bloom, shadows, and physically-based materials (PBR).</p>
                 </div>
-
                 <div class="details-block">
-                    <video src="videos/raftel_lighting.mp4" controls></video>
-                    <p><strong>Lighting & Visual Effects:</strong> Implemented dynamic shadows, HDR rendering, bloom, PBR lighting, and real-time post-processing.</p>
+                    <video src="media/raftel_editor.mp4" controls></video>
+                    <p>Built a custom editor interface with ImGui for managing entities and components in real time.</p>
                 </div>
             </div>
         </div>
-    </div>
-
-
-    <section id="about" class="section">
-        <h2>About Me</h2>
-        <p>
-            I'm a game programmer who enjoys building technical systems that bring gameplay ideas to life. With experience in
-            Unreal Engine, C++, custom graphics engines and mobile development, I love collaborating with multidisciplinary teams
-            to deliver polished and engaging experiences.
-        </p>
     </section>
 
+    <footer id="contact">
+        <p>Contact: marcjoelfb@gmail.com</p>
+        <p>© 2025 Marc Folgado</p>
+    </footer>
+
+    <script src="matrix.js"></script>
     <script>
-        function showProjectDetails(projectId) {
-            const details = document.getElementById("project-details");
-            details.classList.add("visible");
-
-            // Oculta todos los proyectos
-            document.querySelectorAll(".project-detail").forEach(p => {
-                p.classList.remove("visible");
+        function filterProjects(category) {
+            const cards = document.querySelectorAll(".project-card");
+            cards.forEach(card => {
+                if (category === "all" || card.dataset.category.includes(category)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
             });
+        }
 
-            // Muestra solo el seleccionado
-            document.getElementById(projectId).classList.add("visible");
+        function showProjectDetails(projectId) {
+            document.getElementById("project-details").classList.add("visible");
+            document.querySelectorAll(".project-detail").forEach(section => {
+                section.classList.remove("visible");
+            });
+            document.getElementById(projectId + "-details").classList.add("visible");
         }
 
         function closeProject() {
             document.getElementById("project-details").classList.remove("visible");
+            document.querySelectorAll(".project-detail").forEach(section => {
+                section.classList.remove("visible");
+            });
         }
-    </script>
 
-    <script src="matrix.js"></script>
+        document.querySelectorAll(".project-card video").forEach(video => {
+            video.addEventListener("mouseover", () => video.play());
+            video.addEventListener("mouseout", () => {
+                video.pause();
+                video.currentTime = 0;
+            });
+        });
+    </script>
 </body>
 </html>
