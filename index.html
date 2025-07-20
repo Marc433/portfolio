@@ -45,19 +45,29 @@
             <button onclick="filterProjects('cpp')">C++</button>
             <button onclick="filterProjects('unity')">Unity</button>
         </div>
-        <div class="projects-grid" id="projectsGrid">
-            <div class="project-box" data-tags="all unreal cpp" onclick="showProjectDetails('tiris')">
-                <video src="videos/TirisPreview.mp4" muted loop></video>
-                <div class="project-info">
-                    <h3>Tiris</h3>
-                    <p>Steam-published top-down shooter developed in Unreal Engine 5.</p>
-                </div>
+        <div class="project-box" data-tags="all unreal cpp" data-target="project-tiris">
+            <video src="videos/TirisPreview.mp4" muted loop></video>
+            <div class="project-info">
+                <h3>Tiris</h3>
+                <p>Steam-published top-down shooter developed in Unreal Engine 5.</p>
             </div>
+        </div>
+
+        <div class="project-card" data-tags="all c++" data-target="project-raftel">
+            <video src="videos/raftel-preview.mp4" muted loop></video>
+            <div class="project-title">Raftel Engine</div>
+        </div>
+
+        <div class="project-card" data-tags="all unreal c++" data-target="project-trankitanki">
+            <video src="videos/trankitanki-preview.mp4" muted loop></video>
+            <div class="project-title">TrankiTanki</div>
+        </div>
+
         </div>
     </section>
 
-    <section id="project-details" class="overlay hidden">
-        <button id="return-btn">← Return</button>
+    <section id="project-tiris" class="overlay hidden project-details">
+        <button class="return-button">← Return</button>
         <div class="details-header">
             <img src="images/TirisCover.jpg" alt="Tiris Cover" />
             <div>
@@ -88,7 +98,41 @@
             </div>
         </div>
     </section>
+    <!-- Raftel Engine Section -->
+    <section id="project-raftel" class="overlay hidden project-details">
+        <button class="return-button">← Return</button>
+        <div class="project-detail">
+            <img src="images/raftel-cover.jpg" alt="Raftel Engine Cover" />
+            <div class="project-description">
+                <h2>Raftel Engine</h2>
+                <p>A custom C++ graphics engine with OpenGL. Includes OBJ loading, entity system, real-time shadows, HDR, bloom, and PBR. Fully interactive editor via ImGui.</p>
+            </div>
+        </div>
+        <div class="project-media">
+            <video controls src="videos/raftel-1.mp4"></video>
+            <p>Engine features demonstration: dynamic lighting, physics, and entity picking.</p>
+            <video controls src="videos/raftel-2.mp4"></video>
+            <p>Custom tools and user interface powered by ImGui.</p>
+        </div>
+    </section>
 
+    <!-- TrankiTanki Section -->
+    <section id="project-trankitanki" class="overlay hidden project-details">
+        <button class="return-button">← Return</button>
+        <div class="project-detail">
+            <img src="images/trankitanki-cover.jpg" alt="TrankiTanki Cover" />
+            <div class="project-description">
+                <h2>TrankiTanki</h2>
+                <p>Wave-based action game built in Unreal Engine using C++. Players face hordes of enemies while upgrading tanks and managing resources.</p>
+            </div>
+        </div>
+        <div class="project-media">
+            <video controls src="videos/trankitanki-1.mp4"></video>
+            <p>Enemy wave system, player upgrades, and dynamic UI elements.</p>
+            <video controls src="videos/trankitanki-2.mp4"></video>
+            <p>Core gameplay and level design with AI enemy behaviors.</p>
+        </div>
+    </section>
     <section id="about" class="section">
         <h2>About Me</h2>
         <p>
@@ -99,31 +143,32 @@
     </section>
 
     <script>
-        const projectDetails = document.getElementById('project-details');
-        const returnBtn = document.getElementById('return-btn');
-        const sectionsToHide = [
-            document.getElementById('home'),
-            document.getElementById('projects'),
-            document.getElementById('about')
-        ];
+        // Mostrar el proyecto correcto al hacer clic
+        document.querySelectorAll('[data-target]').forEach(card => {
+            card.addEventListener('click', () => {
+                const targetId = card.getAttribute('data-target');
 
-        function showProjectDetails(id) {
-            if (id === 'tiris') {
-                projectDetails.classList.remove('hidden');
-                projectDetails.classList.add('visible');
-            }
+                // Ocultar todas las secciones de proyecto
+                document.querySelectorAll('.project-details').forEach(section => {
+                    section.classList.remove('visible');
+                });
 
-            sectionsToHide.forEach(section => section.style.display = 'none');
-            window.scrollTo(0, 0);
-        }
+                // Mostrar solo el correspondiente
+                const section = document.getElementById(targetId);
+                if (section) section.classList.add('visible');
+            });
+        });
 
-        returnBtn.addEventListener('click', () => {
-            projectDetails.classList.remove('visible');
-            projectDetails.classList.add('hidden');
-
-            sectionsToHide.forEach(section => section.style.display = 'block');
+        // Botón de retorno
+        document.querySelectorAll('.return-button').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.project-details').forEach(section => {
+                    section.classList.remove('visible');
+                });
+            });
         });
     </script>
+
 
     <script src="matrix.js"></script>
 </body>
