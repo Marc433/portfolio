@@ -101,21 +101,30 @@
     <script>
         const projectDetails = document.getElementById('project-details');
         const returnBtn = document.getElementById('return-btn');
-        const sectionsToHide = [document.getElementById('home'), document.getElementById('projects'), document.getElementById('about')];
+        const sectionsToHide = [
+            document.getElementById('home'),
+            document.getElementById('projects'),
+            document.getElementById('about')
+        ];
 
         function showProjectDetails(id) {
             if (id === 'tiris') {
-                document.getElementById('project-details').classList.add('visible');
+                projectDetails.classList.remove('hidden');
+                projectDetails.classList.add('visible');
             }
+
             sectionsToHide.forEach(section => section.style.display = 'none');
             window.scrollTo(0, 0);
         }
 
         returnBtn.addEventListener('click', () => {
-            document.getElementById('project-details').classList.remove('visible');
+            projectDetails.classList.remove('visible');
+            projectDetails.classList.add('hidden');
+
             sectionsToHide.forEach(section => section.style.display = 'block');
         });
     </script>
+
     <script src="matrix.js"></script>
 </body>
 </html>
