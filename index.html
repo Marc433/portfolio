@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+    <canvas id="matrix"></canvas>
+
     <header>
         <nav class="navbar">
             <h1>Marc Folgado</h1>
@@ -53,30 +55,26 @@
                     <p>Steam-published top-down shooter developed in Unreal Engine 5.</p>
                 </div>
             </div>
-
-            <div class="project-box" data-tags="all c++" data-target="project-raftel">
+            <div class="project-box" data-tags="all cpp" data-target="project-raftel">
                 <video src="videos/raftel-preview.mp4" muted loop></video>
                 <div class="project-info">
                     <h3>Raftel Engine</h3>
-                    <p>Custom C++ graphics engine with OpenGL and ImGui tools.</p>
+                    <p>Custom OpenGL graphics engine built with C++ from scratch.</p>
                 </div>
             </div>
-
-            <div class="project-box" data-tags="all unreal c++" data-target="project-trankitanki">
+            <div class="project-box" data-tags="all unreal cpp" data-target="project-trankitanki">
                 <video src="videos/trankitanki-preview.mp4" muted loop></video>
                 <div class="project-info">
                     <h3>TrankiTanki</h3>
-                    <p>Wave-based shooter made in Unreal Engine using C++.</p>
+                    <p>Wave-based action game made in Unreal Engine 5 with C++.</p>
                 </div>
             </div>
         </div>
-
     </section>
 
-    <section id="project-tiris" class="overlay hidden project-details">
+    <!-- TIRIS -->
+    <section id="project-tiris" class="project-details">
         <button class="return-btn">← Return</button>
-
-
         <div class="details-header">
             <img src="images/TirisCover.jpg" alt="Tiris Cover" />
             <div>
@@ -107,45 +105,57 @@
             </div>
         </div>
     </section>
-    <!-- Raftel Engine Section -->
-    <section id="project-raftel" class="overlay hidden project-details">
+
+    <!-- RAFTEL -->
+    <section id="project-raftel" class="project-details">
         <button class="return-btn">← Return</button>
-
-
-        <div class="project-detail">
-            <img src="images/raftel-cover.jpg" alt="Raftel Engine Cover" />
-            <div class="project-description">
-                <h2>Raftel Engine</h2>
-                <p>A custom C++ graphics engine with OpenGL. Includes OBJ loading, entity system, real-time shadows, HDR, bloom, and PBR. Fully interactive editor via ImGui.</p>
+        <div class="details-header">
+            <img src="images/raftel-cover.jpg" alt="Raftel Cover" />
+            <div>
+                <h3>Raftel Engine</h3>
+                <p>
+                    Custom OpenGL engine built entirely in C++. Features entity system, shadows,
+                    HDR rendering, bloom, PBR materials, and an interactive editor via ImGui.
+                </p>
             </div>
         </div>
-        <div class="project-media">
-            <video controls src="videos/raftel-1.mp4"></video>
-            <p>Engine features demonstration: dynamic lighting, physics, and entity picking.</p>
-            <video controls src="videos/raftel-2.mp4"></video>
-            <p>Custom tools and user interface powered by ImGui.</p>
+        <div class="details-content">
+            <div class="details-block">
+                <video src="videos/raftel-1.mp4" controls></video>
+                <p>Engine features demonstration: dynamic lighting, physics, and entity picking.</p>
+            </div>
+            <div class="details-block">
+                <video src="videos/raftel-2.mp4" controls></video>
+                <p>Custom tools and user interface powered by ImGui.</p>
+            </div>
         </div>
     </section>
 
-    <!-- TrankiTanki Section -->
-    <section id="project-trankitanki" class="overlay hidden project-details">
+    <!-- TRANKITANKI -->
+    <section id="project-trankitanki" class="project-details">
         <button class="return-btn">← Return</button>
-
-
-        <div class="project-detail">
+        <div class="details-header">
             <img src="images/trankitanki-cover.jpg" alt="TrankiTanki Cover" />
-            <div class="project-description">
-                <h2>TrankiTanki</h2>
-                <p>Wave-based action game built in Unreal Engine using C++. Players face hordes of enemies while upgrading tanks and managing resources.</p>
+            <div>
+                <h3>TrankiTanki</h3>
+                <p>
+                    Wave-based tank action game developed with Unreal Engine 5 and C++. Includes
+                    AI enemy waves, tank upgrades, and dynamic UI systems.
+                </p>
             </div>
         </div>
-        <div class="project-media">
-            <video controls src="videos/trankitanki-1.mp4"></video>
-            <p>Enemy wave system, player upgrades, and dynamic UI elements.</p>
-            <video controls src="videos/trankitanki-2.mp4"></video>
-            <p>Core gameplay and level design with AI enemy behaviors.</p>
+        <div class="details-content">
+            <div class="details-block">
+                <video src="videos/trankitanki-1.mp4" controls></video>
+                <p>Enemy wave system, player upgrades, and dynamic UI elements.</p>
+            </div>
+            <div class="details-block">
+                <video src="videos/trankitanki-2.mp4" controls></video>
+                <p>Core gameplay and level design with AI enemy behaviors.</p>
+            </div>
         </div>
     </section>
+
     <section id="about" class="section">
         <h2>About Me</h2>
         <p>
@@ -155,49 +165,38 @@
         </p>
     </section>
 
+    <script src="matrix.js"></script>
     <script>
-        // Mostrar la sección del proyecto clicado
-        document.querySelectorAll('[data-target]').forEach(card => {
-            card.addEventListener('click', () => {
-                const targetId = card.getAttribute('data-target');
+        // Mostrar sección de proyecto
+        document.querySelectorAll('.project-box').forEach(box => {
+            box.addEventListener('click', () => {
+                const targetId = box.getAttribute('data-target');
 
-                // Ocultar contenido general
                 document.querySelector('#home').style.display = 'none';
                 document.querySelector('#projects').style.display = 'none';
                 document.querySelector('#about').style.display = 'none';
 
-                // Ocultar todas las secciones de proyectos
                 document.querySelectorAll('.project-details').forEach(section => {
                     section.classList.remove('visible');
                 });
 
-                // Mostrar el correspondiente
-                const section = document.getElementById(targetId);
-                if (section) {
-                    section.classList.add('visible');
-                }
+                const target = document.getElementById(targetId);
+                if (target) target.classList.add('visible');
             });
         });
 
-        // Botones de Return
+        // Ocultar sección al hacer click en Return
         document.querySelectorAll('.return-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                // Mostrar contenido general
                 document.querySelector('#home').style.display = 'flex';
                 document.querySelector('#projects').style.display = 'block';
                 document.querySelector('#about').style.display = 'block';
 
-                // Ocultar secciones de proyecto
                 document.querySelectorAll('.project-details').forEach(section => {
                     section.classList.remove('visible');
                 });
             });
         });
     </script>
-
-
-
-
-    <script src="matrix.js"></script>
 </body>
 </html>
