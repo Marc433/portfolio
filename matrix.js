@@ -19,6 +19,8 @@ const columns = canvas.width / fontSize;
 const drops = Array(Math.floor(columns)).fill(1);
 
 function drawMatrix() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
     ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "#0f0";
@@ -30,10 +32,5 @@ function drawMatrix() {
         drops[i] = y * fontSize > canvas.height && Math.random() > 0.975 ? 0 : y + 1;
     });
 }
-
-window.addEventListener("resize", () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-});
 
 setInterval(drawMatrix, 50);
