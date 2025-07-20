@@ -197,8 +197,6 @@ a {
 
 /* PROJECT DETAILS OVERLAY */
 .overlay {
-    z-index: 1001;
-    background-color: rgba(0, 0, 0, 0.7);
     position: fixed;
     top: 0;
     left: 0;
@@ -219,10 +217,6 @@ a {
     }
 
 #return-btn {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 1100;
     position: fixed;
     bottom: 20px;
     left: 20px;
@@ -413,10 +407,6 @@ a {
     position: fixed;
     bottom: 20px;
     left: 20px;
-    z-index: 1100;
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
     z-index: 9999;
     background-color: #0f0;
     color: #000;
@@ -436,11 +426,4 @@ a {
     display: flex;
     flex-direction: column;
     gap: 30px;
-}
-.project-media video {
-    max-width: 800px;
-    width: 90%;
-    margin: 20px auto;
-    display: block;
-    border-radius: 12px;
 }
