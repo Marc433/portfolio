@@ -469,3 +469,11 @@ a {
     justify-content: flex-start;
     margin-left: 400px;
 }
+.main-name .line1,
+.main-name .line2 {
+    display: block;
+}
+
+.main-name .line1 {
+    margin-bottom: 0.3rem;
+}
