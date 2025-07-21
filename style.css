@@ -469,3 +469,17 @@ a {
     justify-content: flex-start;
     margin-left: 400px;
 }
+
+.name-line {
+    display: block;
+    line-height: 1;
+}
+
+.main-name {
+    font-size: 5rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 15px #0f0;
+    animation: glowFade 4s infinite ease-in-out;
+}
