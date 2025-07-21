@@ -450,13 +450,13 @@ a {
 .code-box {
     background-color: rgba(0, 0, 0, 0.4);
     border: 1px solid #00ff88;
-    padding: 40px;
+    padding: 100px;
     border-radius: 12px;
     font-family: 'Courier New', monospace;
     color: #00ff88;
     font-size: 1rem;
-    width: 500px; /* Caja más ancha */
-    height: 300px; /* Caja más alta */
+    width: 700px; /* Caja más ancha */
+    height: 500px; /* Caja más alta */
     overflow: hidden;
     white-space: pre-wrap;
     box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
