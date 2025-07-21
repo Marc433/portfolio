@@ -266,7 +266,7 @@ a {
 .home-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: flex-start;
+    align-items: center;
     justify-items: center;
     max-width: 1200px;
     margin: auto;
@@ -467,10 +467,5 @@ a {
     display: flex;
     align-items: flex-start; /* Alinea contenido arriba */
     justify-content: flex-start;
-/*    margin-left: 300px;*/
-}
-
-.lastname {
-    display: inline-block;
-    margin-top: 0.5rem;
+    margin-left: 400px;
 }
