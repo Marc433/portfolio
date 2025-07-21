@@ -446,3 +446,20 @@ a {
     flex-direction: column;
     gap: 30px;
 }
+
+.code-box {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid #00ff88;
+    padding: 20px;
+    border-radius: 10px;
+    font-family: 'Courier New', monospace;
+    color: #00ff88;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 500px;
+    height: 220px;
+    overflow: hidden;
+    white-space: pre-line;
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+    animation: fadeInUp 2s ease;
+}
