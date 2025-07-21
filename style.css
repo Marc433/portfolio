@@ -268,7 +268,7 @@ a {
     grid-template-columns: 2fr 1fr;
     align-items: center;
     justify-items: center;
-    width: 1000px;             
+    width: 100px;             
 /*    max-width: 1700px; */
     margin: auto;
     height: 100vh;
@@ -457,7 +457,7 @@ a {
     font-family: 'Courier New', monospace;
     color: #00ff88;
     font-size: 1rem;
-    width: 600px; /* ← ocupa el ancho del grid */
+    width: 100px; /* ← ocupa el ancho del grid */
     /*max-width: 1000px;*/ /* ← no se pase de esto */
     height: 400px;
     overflow: hidden;
