@@ -28,8 +28,9 @@
                 </p>
                 <a href="#" class="btn download-btn">Download CV</a>
             </div>
-            <div class="code-box">
-                <pre id="codeBlock"></pre>
+                <div class="content-wrapper">
+                    <div class="text-area">...</div>
+                    <div class="code-box">...</div>
             </div>
         </div>
     </section>
@@ -197,35 +198,35 @@
         });
     </script>
     <script>
-        const codeLines = [
-            "void AEnemy::Die()",
-            "{",
-            "    bIsDead = true;",
-            "    PlayDeathAnimation();",
-            "",
-            "    GetWorld()->GetTimerManager().SetTimer(DespawnTimer, this,",
-            "        &AEnemy::DestroyEnemy, 5.0f, false);",
-            "}"
-        ];
+        const codeText = `
+void AEnemy::Die()
+{
+        bIsDead = true;
+        PlayDeathAnimation();
+
+        GetWorld()->GetTimerManager().SetTimer(DespawnTimer, this,
+            &AEnemy::DestroyEnemy, 5.0f, false);
+}
+`;
 
         const codeBlock = document.getElementById("codeBlock");
-        let lineIndex = 0;
+        let charIndex = 0;
 
-        function typeLine() {
-            if (lineIndex < codeLines.length) {
-                codeBlock.textContent += codeLines[lineIndex] + "\n";
-                lineIndex++;
-                setTimeout(typeLine, 300);
+        function typeChar() {
+            if (charIndex < codeText.length) {
+                codeBlock.textContent += codeText[charIndex];
+                charIndex++;
+                setTimeout(typeChar, 20); // velocidad de escritura
             } else {
                 setTimeout(() => {
                     codeBlock.textContent = "";
-                    lineIndex = 0;
-                    typeLine();
-                }, 2000); // Espera 2s antes de reiniciar
+                    charIndex = 0;
+                    typeChar();
+                }, 2000);
             }
         }
 
-        typeLine();
+        typeChar();
     </script>
 
 
