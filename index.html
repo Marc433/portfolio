@@ -197,36 +197,37 @@
         });
     </script>
     <script>
-        const codeLines = [
-            "void AEnemy::Die()",
-            "{",
-            "    bIsDead = true;",
-            "    PlayDeathAnimation();",
-            "",
-            "    GetWorld()->GetTimerManager().SetTimer(DespawnTimer, this,",
-            "        &AEnemy::DestroyEnemy, 5.0f, false);",
-            "}"
-        ];
+        const codeText = `
+void AEnemy::Die()
+{
+        bIsDead = true;
+        PlayDeathAnimation();
+
+        GetWorld()->GetTimerManager().SetTimer(DespawnTimer, this,
+            &AEnemy::DestroyEnemy, 5.0f, false);
+}
+`;
 
         const codeBlock = document.getElementById("codeBlock");
-        let lineIndex = 0;
+        let index = 0;
 
-        function typeLine() {
-            if (lineIndex < codeLines.length) {
-                codeBlock.textContent += codeLines[lineIndex] + "\n";
-                lineIndex++;
-                setTimeout(typeLine, 300);
+        function typeCharacter() {
+            if (index < codeText.length) {
+                codeBlock.textContent += codeText[index];
+                index++;
+                setTimeout(typeCharacter, 20); // velocidad de escritura
             } else {
                 setTimeout(() => {
                     codeBlock.textContent = "";
-                    lineIndex = 0;
-                    typeLine();
-                }, 2000); // Espera 2s antes de reiniciar
+                    index = 0;
+                    typeCharacter();
+                }, 2000); // espera antes de reiniciar
             }
         }
 
-        typeLine();
+        typeCharacter();
     </script>
+
 
 
 
