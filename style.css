@@ -53,7 +53,6 @@ a {
 
 /* HOME */
 #home {
-    position: relative;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -450,10 +449,6 @@ a {
     }
 
 .code-box {
-    position: absolute;
-    top: 50%;
-    right: 5%;
-    transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.4);
     border: 1px solid #00ff88;
     padding: 100px;
