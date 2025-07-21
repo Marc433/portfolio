@@ -232,10 +232,10 @@ a {
     box-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
 }
 
-#return-btn:hover {
-    background-color: rgba(0, 255, 136, 0.1);
-    transform: scale(1.05);
-}
+    #return-btn:hover {
+        background-color: rgba(0, 255, 136, 0.1);
+        transform: scale(1.05);
+    }
 
 
 @keyframes fadeIn {
@@ -292,6 +292,7 @@ a {
     text-shadow: 0 0 15px #0f0;
     animation: glowFade 4s infinite ease-in-out;
 }
+
 .role {
     font-size: 2rem;
     font-weight: 600;
@@ -431,21 +432,21 @@ a {
     transition: all 0.3s ease;
 }
 
-.return-btn:hover {
-    background-color: #0c0;
-    transform: scale(1.05);
-    box-shadow: 0 0 20px #00ff88;
-}
+    .return-btn:hover {
+        background-color: #0c0;
+        transform: scale(1.05);
+        box-shadow: 0 0 20px #00ff88;
+    }
 
 .project-details {
     display: none;
 }
 
-.project-details.visible {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
+    .project-details.visible {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
 
 .code-box {
     background-color: rgba(0, 0, 0, 0.4);
@@ -466,6 +467,5 @@ a {
     display: flex;
     align-items: flex-start; /* Alinea contenido arriba */
     justify-content: flex-start;
-    margin-left: 500px;
+    margin-left: 400px;
 }
-
