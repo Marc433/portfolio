@@ -422,6 +422,10 @@ a {
     background-color: #0c0;
 }
 
+.project-details {
+    display: none;
+}
+
 .project-details.visible {
     display: flex;
     flex-direction: column;
