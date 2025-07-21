@@ -455,18 +455,12 @@ a {
     font-family: 'Courier New', monospace;
     color: #00ff88;
     font-size: 1rem;
-    width: 500px;
-    height: 320px;
+    width: 500px; /* Caja más ancha */
+    height: 300px; /* Caja más alta */
     overflow: hidden;
     white-space: pre-wrap;
     box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
     animation: fadeInUp 2s ease;
+    justify-self: end; /* Empuja la caja a la derecha en grid */
 }
 
-.content-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 60px;
-    width: 100%;
-}
