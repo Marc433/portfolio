@@ -403,23 +403,27 @@ a {
 }
 
 /* Botón de return siempre visible en esquina inferior izquierda */
-#return-btn {
+.return-btn {
     position: fixed;
     bottom: 20px;
-    left: 20px;
+    left: 20px; /* Cambia a right: 20px si prefieres la esquina derecha */
     z-index: 9999;
     background-color: #0f0;
     color: #000;
     font-weight: bold;
     padding: 12px 24px;
     border-radius: 8px;
-    box-shadow: 0 0 10px #0f0;
     border: none;
-    transition: background-color 0.3s;
+    box-shadow: 0 0 12px #0f0;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-#return-btn:hover {
+.return-btn:hover {
     background-color: #0c0;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #00ff88;
 }
 
 .project-details {
