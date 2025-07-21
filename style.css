@@ -265,21 +265,23 @@ a {
 }*/
 .home-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.6fr 0.4fr; /* ← más espacio a la izquierda */
     align-items: center;
     justify-items: center;
-    max-width: 1200px;
+    max-width: 1400px; /* ← ensanchamos un poco el contenedor */
     margin: auto;
     height: 100vh;
     padding: 0 2rem;
     gap: 2rem;
 }
 
+
 .text-area {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-width: 100%; /* ← ocupar todo su espacio de columna */
     animation: fadeInUp 1.2s ease-out;
 }
 
@@ -289,6 +291,7 @@ a {
     font-weight: 800;
     color: #fff;
     margin-bottom: 1rem;
+    line-height: 1.1;
     text-shadow: 0 0 15px #0f0;
     animation: glowFade 4s infinite ease-in-out;
 }
@@ -470,16 +473,3 @@ a {
     margin-left: 400px;
 }
 
-.name-line {
-    display: block;
-    line-height: 1;
-}
-
-.main-name {
-    font-size: 5rem;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 1rem;
-    text-shadow: 0 0 15px #0f0;
-    animation: glowFade 4s infinite ease-in-out;
-}
