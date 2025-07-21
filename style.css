@@ -265,7 +265,8 @@ a {
 }*/
 .home-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+/*    grid-template-columns: 1fr 1fr;*/
+    grid-template-columns: 60% 40%;
     align-items: center;
     justify-items: center;
     max-width: 1200px;
@@ -466,6 +467,6 @@ a {
     display: flex;
     align-items: flex-start; /* Alinea contenido arriba */
     justify-content: flex-start;
-    margin-left: 600px;
+    margin-left: 500px;
 }
 
