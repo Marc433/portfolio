@@ -455,7 +455,7 @@ a {
     font-family: 'Courier New', monospace;
     color: #00ff88;
     font-size: 1rem;
-    width: 600px;
+    width: 800px;
     height: 400px;
     overflow: hidden;
     white-space: pre-wrap;
@@ -466,5 +466,6 @@ a {
     display: flex;
     align-items: flex-start; /* Alinea contenido arriba */
     justify-content: flex-start;
+    margin-left: 60px;
 }
 
