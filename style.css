@@ -457,7 +457,7 @@ a {
     color: #00ff88;
     font-size: 1rem;
     width: 100%;
-    max-width: 700px; /* ← más ancho que antes */
+    max-width: 1000px; /* ← más ancho que antes */
     height: 400px;
     overflow: hidden;
     white-space: pre-wrap;
