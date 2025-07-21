@@ -265,8 +265,7 @@ a {
 }*/
 .home-content {
     display: grid;
-/*    grid-template-columns: 1fr 1fr;*/
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-items: center;
     max-width: 1200px;
