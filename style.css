@@ -268,8 +268,8 @@ a {
     grid-template-columns: 2fr 1fr;
     align-items: center;
     justify-items: center;
-    width: 1000px;             
-/*    max-width: 1700px; */
+    width: 100%;             
+    max-width: 1600px; 
     margin: auto;
     height: 100vh;
     padding: 0 2rem;
@@ -279,6 +279,7 @@ a {
 .text-area {
     flex: 1;
     display: flex;
+    width: 900px;
     flex-direction: column;
     justify-content: center;
     animation: fadeInUp 1.2s ease-out;
@@ -457,7 +458,7 @@ a {
     font-family: 'Courier New', monospace;
     color: #00ff88;
     font-size: 1rem;
-    width: 100px; /* ← ocupa el ancho del grid */
+    width: 700px; /* ← ocupa el ancho del grid */
     /*max-width: 1000px;*/ /* ← no se pase de esto */
     height: 400px;
     overflow: hidden;
