@@ -490,3 +490,14 @@ a {
     color: #000;
     transform: translateY(-3px);
 }
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap; /* por si no cabe en pantallas pequeñas */
+}
+
+html {
+    scroll-behavior: smooth;
+}
