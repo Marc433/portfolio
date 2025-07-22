@@ -203,8 +203,8 @@ void AEnemy::Die()
             bIsDead = true;
             PlayDeathAnimation();
 
-            GetWorld()->GetTimerManager().SetTimer(DespawnTimer, this, &AEnemy::DestroyEnemy,
-                 5.0f, false);
+            GetWorld()->GetTimerManager().SetTimer(DespawnTimer, this,
+                &AEnemy::DestroyEnemy, 5.0f, false);
 }
 `;
 
