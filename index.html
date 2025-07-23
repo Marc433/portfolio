@@ -47,7 +47,8 @@
         </div>
         <div class="projects-grid" id="projectsGrid">
             <div class="project-box" data-tags="all unreal cpp" data-target="project-tiris">
-                <video src="videos/TirisPreview.mp4" muted loop></video>
+                <img src="img/TirisThumbnail.png" class="preview-img" />
+                <video src="videos/Tiris/TirisPreview.mp4" muted loop></video>
                 <div class="project-info">
                     <h3>Tiris</h3>
                     <p>Steam-published top-down shooter developed in Unreal Engine 5.</p>
@@ -55,6 +56,7 @@
             </div>
 
             <div class="project-box" data-tags="all c++" data-target="project-raftel">
+                <img src="img/RaftelThumbnail.png" class="preview-img" />
                 <video src="videos/raftel-preview.mp4" muted loop></video>
                 <div class="project-info">
                     <h3>Raftel Engine</h3>
@@ -63,6 +65,7 @@
             </div>
 
             <div class="project-box" data-tags="all unreal c++" data-target="project-trankitanki">
+                <img src="img/TankiThumbnail.png" class="preview-img" />
                 <video src="videos/trankitanki-preview.mp4" muted loop></video>
                 <div class="project-info">
                     <h3>TrankiTanki</h3>
@@ -203,11 +206,11 @@
         const codeText = `
 void AEnemy::Die()
 {
-            bIsDead = true;
-            PlayDeathAnimation();
+                bIsDead = true;
+                PlayDeathAnimation();
 
-            GetWorld()->GetTimerManager().SetTimer(DespawnTimer, this,
-                &AEnemy::DestroyEnemy, 5.0f, false);
+                GetWorld()->GetTimerManager().SetTimer(DespawnTimer, this,
+                    &AEnemy::DestroyEnemy, 5.0f, false);
 }
 `;
 
@@ -231,6 +234,25 @@ void AEnemy::Die()
         typeCharacter();
     </script>
 
+    <script>
+        document.querySelectorAll('.project-box').forEach(box => {
+            const video = box.querySelector('.preview-video');
+
+            box.addEventListener('mouseenter', () => {
+                if (video) {
+                    video.currentTime = 0;
+                    video.play();
+                }
+            });
+
+            box.addEventListener('mouseleave', () => {
+                if (video) {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+            });
+        });
+    </script>
 
 
 
