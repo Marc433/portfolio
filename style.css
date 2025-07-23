@@ -118,11 +118,14 @@ a {
 
 
 .project-box {
+    position: relative;
     background-color: #1e1e1e;
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
 }
 
     .project-box:hover {
@@ -176,7 +179,14 @@ a {
     max-width: 800px;
     margin: auto;
 }
-
+.media-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+    overflow: hidden;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -504,30 +514,27 @@ a {
 html {
     scroll-behavior: smooth;
 }
-.project-box {
-    position: relative;
-}
+
 
 .preview-img,
 .preview-video {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     transition: opacity 0.4s ease;
-    border-radius: 12px;
+    border-radius: 0;
 }
 
 .preview-img {
-    z-index: 1;
+    z-index: 2;
     opacity: 1;
 }
 
 .preview-video {
-    z-index: 2;
+    z-index: 1;
     opacity: 0;
     pointer-events: none;
 }
