@@ -97,12 +97,20 @@
             </div>
         </div>
         <div class="details-content">
-            <div class="details-block pickup-slider">
-                <video id="pickupVideo" src="videos/pickup1.mp4" controls></video>
-                <p id="pickupCaption">Pickup 1: Health pickup increases player's health.</p>
-                <div class="slider-controls">
-                    <button id="prevPickup">←</button>
-                    <button id="nextPickup">→</button>
+            <div class="details-block pickup-row">
+                <div class="pickup-slider">
+                    <video id="pickupVideo" src="videos/pickup1.mp4" controls></video>
+                    <p id="pickupCaption">Pickup 1: Health pickup increases player's health.</p>
+                    <div class="slider-controls">
+                        <button id="prevPickup">←</button>
+                        <button id="nextPickup">→</button>
+                    </div>
+                </div>
+                <div class="pickup-description">
+                    <h4>Pickup & Inventory System</h4>
+                    <p>
+                        All pickups are managed through the <strong>DropComponent</strong> and <strong>InventoryComponent</strong>. The DropComponent handles drop rates, spawn logic, and physics, while the InventoryComponent ensures correct registration and usage logic for each item type.
+                    </p>
                 </div>
             </div>
             <div class="details-block">

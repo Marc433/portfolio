@@ -602,3 +602,39 @@ html {
             background-color: #0c0;
             box-shadow: 0 0 10px #00ff88;
         }
+
+.pickup-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 20px;
+}
+
+.pickup-slider {
+    flex: 1;
+    min-width: 300px;
+    max-width: 550px;
+}
+
+.pickup-description {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    background-color: rgba(0, 255, 136, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.6;
+    animation: fadeInUp 1s ease;
+}
+
+    .pickup-description h4 {
+        font-size: 1.6rem;
+        color: #00ff88;
+        margin-bottom: 10px;
+        text-shadow: 0 0 6px #00ff88;
+    }
