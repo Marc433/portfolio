@@ -446,15 +446,17 @@ a {
 /* Ajustes a los videos de detalles */
 .details-content .details-block {
     margin-bottom: 40px;
-    padding: 0 20px;
-    max-width: 900px;
+    padding: 0 40px;
+    width: 100%;
+    max-width: 1600px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .details-content video {
     width: 100%;
-    max-height: 400px;
+    max-width: 1200px;
+    max-height: 600px;
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
