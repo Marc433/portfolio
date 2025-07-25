@@ -612,17 +612,18 @@ html {
     gap: 40px;
     padding: 20px;
     flex-direction: row;
-    max-width: 1400px; /* ← MÁS ancho del grid */
+    max-width: 1600px; /* ← MÁS ancho del grid */
     margin: 0 auto; /* ← Centramos el grid */
 }
 
 .pickup-slider video {
     width: 100%;
-    max-width: 640px;
+    max-width: 800px;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 0 12px rgba(0, 255, 136, 0.3);
 }
+
 
 .pickup-description {
     flex: 1;
