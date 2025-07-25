@@ -575,9 +575,10 @@ html {
 }
 
 .pickup-slider {
-    flex: 1.5;
-    width: 100%;
-    text-align: center;
+    flex: 1.8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .slider-controls {
