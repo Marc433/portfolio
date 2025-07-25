@@ -143,12 +143,39 @@
                 </div>
             </div>
             <div class="details-block">
-                <video src="videos/SteamAchievements.mp4" controls></video>
-                <p>Integrated Steam achievements using Unreal Engine subsystem.</p>
-            </div>
-            <div class="details-block">
                 <video src="videos/UI_Tutorials.mp4" controls></video>
                 <p>UI work: Tutorial boxes and introductory cutscenes with video integration.</p>
+            </div>
+            <div class="details-block achievements-row">
+                <div class="achievement-grid">
+                    <img src="img/logros/Bearer of Light.png" alt="Achievement 1" />
+                    <img src="img/logros/Crownless king.png" alt="Achievement 2" />
+                    <img src="img/logros/Echoes of ink.png" alt="Achievement 3" />
+                    <img src="img/logros/Free Fallin.png" alt="Achievement 4" />
+                    <img src="img/logros/Gotta grab ’em all.png" alt="Achievement 5" />
+                    <img src="img/logros/High ground lover.png" alt="Achievement 6" />
+                    <img src="img/logros/Journey before destination.png" alt="Achievement 1" />
+                    <img src="img/logros/Life before death.png" alt="Achievement 2" />
+                    <img src="img/logros/Pay Respects.png" alt="Achievement 3" />
+                    <img src="img/logros/Penitent One.png" alt="Achievement 4" />
+                    <img src="img/logros/Strength before weakness.png" alt="Achievement 5" />
+                    <img src="img/logros/Super Smash Pots.png" alt="Achievement 6" />
+                    <img src="img/logros/The hollow sanctum.png" alt="Achievement 1" />
+                    <img src="img/logros/The Hope of Tiris.png" alt="Achievement 2" />
+                    <img src="img/logros/There's always another secret.png" alt="Achievement 3" />
+                    <img src="img/logros/Through the depths.png" alt="Achievement 4" />
+                    <img src="img/logros/You were my flame.png" alt="Achievement 5" />
+                </div>
+                <div class="achievement-description">
+                    <h4>Steam Achievements Integration</h4>
+                    <p>
+                        All 17 achievements were integrated using the Steam Online Subsystem and a custom <strong>Achievement Subsystem</strong>.
+                        The system handles initialization, caching, progress tracking, and communication with the Steam backend.
+                        <br /><br />
+                        Progress-based achievements are updated using a stat-based system and unlocked when specific thresholds are met.
+                        Logic is encapsulated in <code>TDAchievementSubsystem</code> and <code>TDSteamAchievements</code>, ensuring achievements persist across sessions.
+                    </p>
+                </div>
             </div>
         </div>
     </section>

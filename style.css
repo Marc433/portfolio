@@ -645,3 +645,46 @@ html {
         margin-bottom: 10px;
         text-shadow: 0 0 6px #00ff88;
     }
+
+.achievements-row {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    align-items: start;
+    gap: 40px;
+    padding: 20px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 20px;
+    background-color: rgba(0, 255, 136, 0.05);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+}
+
+    .achievement-grid img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 0 8px rgba(0, 255, 136, 0.15);
+    }
+
+.achievement-description {
+    background-color: rgba(0, 255, 136, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+    .achievement-description h4 {
+        font-size: 1.6rem;
+        color: #00ff88;
+        margin-bottom: 10px;
+        text-shadow: 0 0 6px #00ff88;
+    }
