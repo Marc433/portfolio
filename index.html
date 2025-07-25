@@ -100,7 +100,7 @@
             <div class="details-block pickup-row">
                 <div class="pickup-slider">
                     <video id="pickupVideo" src="videos/Tiris/pickups/soul_pickup.mp4" controls></video>
-                    <p id="pickupCaption">Soul Pickup: Increases player\'s souls, which can be consumed to heal.</p>
+                    <p id="pickupCaption">Soul Pickup: Increases player's souls, which can be consumed to heal.</p>
                     <div class="slider-controls">
                         <button id="prevPickup">←</button>
                         <button id="nextPickup">→</button>
@@ -142,9 +142,20 @@
                     </p>
                 </div>
             </div>
-            <div class="details-block">
-                <video src="videos/UI_Tutorials.mp4" controls></video>
-                <p>UI work: Tutorial boxes and introductory cutscenes with video integration.</p>
+            <div class="details-block ui-video-row">
+                <div class="ui-video-container">
+                    <video class="ui-video" controls>
+                        <source src="videos/ui_tutorial_intro.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="ui-description">
+                    <h4>UI & Video Integration</h4>
+                    <p>
+                        <strong>Tutorial boxes</strong> were implemented to guide players at key points. These dynamically display the correct input based on whether the user is using a keyboard or a gamepad, updating in real-time when the input method changes.<br /><br />
+                        In addition, <strong>video cutscenes</strong> such as the intro or logo animations were integrated directly into the game using Unreal's <code>MediaPlayer</code> system. Playback handling, transitions, and audio were all managed within Blueprint logic and C++ triggers.
+                    </p>
+                </div>
             </div>
             <div class="details-block achievements-row">
                 <div class="achievement-grid">
@@ -278,8 +289,9 @@ void AEnemy::Die()
                 bIsDead = true;
                 PlayDeathAnimation();
 
-                GetWorld()->GetTimerManager().SetTimer(DespawnTimer, this,
-                    &AEnemy::DestroyEnemy, 5.0f, false);
+                GetWorld()->GetTimerManager().SetTimer(DespawnTimer,
+                                        this, &AEnemy::DestroyEnemy,
+                                        5.0f, false);
 }
 `;
 
