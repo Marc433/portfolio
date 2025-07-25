@@ -575,7 +575,7 @@ html {
 }
 
 .pickup-slider {
-    flex: 1.8;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -606,15 +606,13 @@ html {
         }
 
 .pickup-row {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    align-items: start;
     gap: 40px;
     padding: 20px;
-    flex-direction: row;
-    max-width: 1600px; /* ← MÁS ancho del grid */
-    margin: 0 auto; /* ← Centramos el grid */
+    max-width: 1600px;
+    margin: 0 auto;
 }
 
 .pickup-slider video {
