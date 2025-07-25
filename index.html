@@ -100,7 +100,7 @@
             <div class="details-block pickup-row">
                 <div class="pickup-slider">
                     <video id="pickupVideo" src="videos/Tiris/pickups/soul_pickup.mp4" controls></video>
-                    <p id="pickupCaption">Pickup 1: Health pickup increases player's health.</p>
+                    <p id="pickupCaption">Soul Pickup: Increases player\'s souls, which can be consumed to heal.</p>
                     <div class="slider-controls">
                         <button id="prevPickup">←</button>
                         <button id="nextPickup">→</button>
@@ -109,13 +109,38 @@
                 <div class="pickup-description">
                     <h4>Pickup & Inventory System</h4>
                     <p>
-                        All pickups are managed through the <strong>DropComponent</strong> and <strong>InventoryComponent</strong>. The DropComponent handles drop rates, spawn logic, and physics, while the InventoryComponent ensures correct registration and usage logic for each item type.
+                        There are 9 different pickups in total, each explained in the slider on the left.
+                        These can either be already placed in the map or dropped dynamically via the
+                        <strong>DropComponent</strong>. This component is used by enemies or destructibles,
+                        allowing full control over the type of pickups that can be dropped and their
+                        drop probability (including the chance of dropping nothing).
+                        <br /><br />
+                        The <strong>InventoryComponent</strong> manages the player’s collected pickups,
+                        registering and enabling logic for usage, stacking and consumption of each item.
                     </p>
                 </div>
             </div>
-            <div class="details-block">
-                <video src="videos/EnemyAI.mp4" controls></video>
-                <p>Enemy AI: Designed behaviors and components for 3 unique enemy types.</p>
+            <div class="details-block pickup-row">
+                <div class="pickup-slider">
+                    <video id="enemyVideo" src="videos/Tiris/enemies/melee_enemy.mp4" controls></video>
+                    <p id="enemyCaption">Melee Enemy: Chases the player and performs short-range attacks.</p>
+                    <div class="slider-controls">
+                        <button id="prevEnemy">←</button>
+                        <button id="nextEnemy">→</button>
+                    </div>
+                </div>
+                <div class="pickup-description">
+                    <h4>Enemy AI System</h4>
+                    <p>
+                        All enemy types are powered by <strong>Behavior Trees</strong> and
+                        <strong>AIPerception</strong> with visual sensing. Detection radius is smaller behind the
+                        enemy, simulating vision cones. Enemies inherit from a shared
+                        <strong>EnemyBase</strong> class, which defines health, movement, and damage logic.
+                        <br /><br />
+                        There are 3 archetypes: <em>melee</em>, <em>ranged</em>, and <em>explosive</em>, each with
+                        their own behaviors and abilities.
+                    </p>
+                </div>
             </div>
             <div class="details-block">
                 <video src="videos/SteamAchievements.mp4" controls></video>
@@ -302,6 +327,36 @@ void AEnemy::Die()
             pickupCaption.textContent = pickupVideos[currentPickup].caption;
             pickupVideo.load();
             pickupVideo.play();
+        }
+
+        const enemyVideos = [
+            { src: 'videos/Tiris/enemies/melee_enemy.mp4', caption: 'Melee Enemy: Chases the player and performs short-range attacks.' },
+            { src: 'videos/Tiris/enemies/ranged_enemy.mp4', caption: 'Ranged Enemy: Fires projectiles from a distance while strafing.' },
+            { src: 'videos/Tiris/enemies/explosive_enemy.mp4', caption: 'Explosive Enemy: Charges toward the player and self-destructs.' },
+            { src: 'videos/Tiris/enemies/sniper_enemy.mp4', caption: 'Sniper Enemy: Remains static, charging high-damage shots from afar.' },
+            { src: 'videos/Tiris/enemies/tank_enemy.mp4', caption: 'Tank Enemy: Protected by a frontal shield. Attacks in melee and throws grenades from a distance.' },
+            { src: 'videos/Tiris/enemies/hidden_enemy.mp4', caption: 'Gargoyle Enemy: Dormant statues that activate when approached, acting as fast melee attackers.' }
+        ];
+
+        let currentEnemy = 0;
+        const enemyVideo = document.getElementById('enemyVideo');
+        const enemyCaption = document.getElementById('enemyCaption');
+
+        document.getElementById('prevEnemy').addEventListener('click', () => {
+            currentEnemy = (currentEnemy - 1 + enemyVideos.length) % enemyVideos.length;
+            updateEnemySlide();
+        });
+
+        document.getElementById('nextEnemy').addEventListener('click', () => {
+            currentEnemy = (currentEnemy + 1) % enemyVideos.length;
+            updateEnemySlide();
+        });
+
+        function updateEnemySlide() {
+            enemyVideo.src = enemyVideos[currentEnemy].src;
+            enemyCaption.textContent = enemyVideos[currentEnemy].caption;
+            enemyVideo.load();
+            enemyVideo.play();
         }
     </script>
 
