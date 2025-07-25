@@ -142,21 +142,25 @@
                     </p>
                 </div>
             </div>
-            <div class="details-block ui-video-row">
-                <div class="ui-video-container">
-                    <video class="ui-video" controls>
-                        <source src="videos/ui_tutorial_intro.mp4" type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video>
+            <div class="details-block pickup-row">
+                <div class="pickup-slider">
+                    <video id="uiVideo" src="videos/Tiris/TutorialsVideo.mp4" controls></video>
+                    <p id="uiCaption">Tutorial Box: Shows keyboard or controller buttons depending on current input.</p>
+                    <div class="slider-controls">
+                        <button id="prevUI">←</button>
+                        <button id="nextUI">→</button>
+                    </div>
                 </div>
-                <div class="ui-description">
-                    <h4>UI & Video Integration</h4>
+                <div class="pickup-description">
+                    <h4>Dynamic UI & Video Playback</h4>
                     <p>
-                        <strong>Tutorial boxes</strong> were implemented to guide players at key points. These dynamically display the correct input based on whether the user is using a keyboard or a gamepad, updating in real-time when the input method changes.<br /><br />
-                        In addition, <strong>video cutscenes</strong> such as the intro or logo animations were integrated directly into the game using Unreal's <code>MediaPlayer</code> system. Playback handling, transitions, and audio were all managed within Blueprint logic and C++ triggers.
+                        The <strong>tutorial boxes</strong> are context-sensitive prompts that automatically adapt their appearance based on the player's current input method — keyboard & mouse or gamepad. This ensures clarity and fluid tutorials for both control schemes.
+                        <br /><br />
+                        Meanwhile, <strong>videos</strong> such as logos and intro cutscenes were seamlessly integrated using Unreal's <code>MediaPlayer</code> system. This allows in-game video playback, audio sync, and transitions to be fully controlled via C++ or Blueprints.
                     </p>
                 </div>
             </div>
+
             <div class="details-block achievements-row">
                 <div class="achievement-grid">
                     <img src="img/logros/Bearer of Light.png" alt="Achievement 1" />
@@ -396,6 +400,33 @@ void AEnemy::Die()
             enemyCaption.textContent = enemyVideos[currentEnemy].caption;
             enemyVideo.load();
             enemyVideo.play();
+        }
+
+        const uiVideos = [
+            { src: 'videos/Tiris/TutorialsVideo.mp4', caption: 'Tutorial Box: Shows keyboard or controller buttons depending on current input.' },
+            { src: 'videos/Tiris/LogosVideo.mp4', caption: 'Company Logos: Displayed using MediaPlayer and played in Blueprint sequences.' },
+            { src: 'videos/Tiris/IntroVideo.mp4', caption: 'Intro Cutscene: Fullscreen video with audio, played at the start of the game.' }
+        ];
+
+        let currentUI = 0;
+        const uiVideo = document.getElementById('uiVideo');
+        const uiCaption = document.getElementById('uiCaption');
+
+        document.getElementById('prevUI').addEventListener('click', () => {
+            currentUI = (currentUI - 1 + uiVideos.length) % uiVideos.length;
+            updateUISlide();
+        });
+
+        document.getElementById('nextUI').addEventListener('click', () => {
+            currentUI = (currentUI + 1) % uiVideos.length;
+            updateUISlide();
+        });
+
+        function updateUISlide() {
+            uiVideo.src = uiVideos[currentUI].src;
+            uiCaption.textContent = uiVideos[currentUI].caption;
+            uiVideo.load();
+            uiVideo.play();
         }
     </script>
 
