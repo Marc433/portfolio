@@ -279,6 +279,8 @@
             </div>
         </div>
     </section>
+
+    <script>
         // Mostrar la sección del proyecto clicado
         document.querySelectorAll('[data-target]').forEach(card => {
             card.addEventListener('click', () => {
@@ -323,12 +325,12 @@
         const codeText = `
 void AEnemy::Die()
 {
-                        bIsDead = true;
-                        PlayDeathAnimation();
+                            bIsDead = true;
+                            PlayDeathAnimation();
 
-                        GetWorld()->GetTimerManager().SetTimer(DespawnTimer,
-                                                this, &AEnemy::DestroyEnemy,
-                                                5.0f, false);
+                            GetWorld()->GetTimerManager().SetTimer(DespawnTimer,
+                                                    this, &AEnemy::DestroyEnemy,
+                                                    5.0f, false);
 }
 `;
 
