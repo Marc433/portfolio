@@ -828,17 +828,24 @@ html {
 }
 .tiris-description-container {
     display: flex;
-    flex-direction: row;
-    gap: 20px;
-    align-items: flex-start;
     flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1600px;
+    margin: auto;
 }
+
 
 .tiris-text {
+    flex: 1 1 700px;
     max-width: 800px;
-    flex: 1;
+    min-width: 400px;
 }
-
+.steam-widget {
+    flex: 0 0 646px;
+    height: 190px;
+}
 .steam-widget iframe {
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 255, 136, 0.15);
