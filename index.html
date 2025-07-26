@@ -69,15 +69,15 @@
             </div>
 
             <!--<div class="project-box" data-tags="all unreal c++" data-target="project-trankitanki">
-            <div class="media-container">
-                <img src="img/TankiThumbnail.png" class="preview-img" />
-                <video src="videos/trankitanki-preview.mp4"  class="preview-video" muted playsinline preload="auto"></video>
-            </div>
-            <div class="project-info">
-                <h3>TrankiTanki</h3>
-                <p>Wave-based shooter made in Unreal Engine using C++.</p>
-            </div>
-        </div>-->
+                <div class="media-container">
+                    <img src="img/TankiThumbnail.png" class="preview-img" />
+                    <video src="videos/trankitanki-preview.mp4"  class="preview-video" muted playsinline preload="auto"></video>
+                </div>
+                <div class="project-info">
+                    <h3>TrankiTanki</h3>
+                    <p>Wave-based shooter made in Unreal Engine using C++.</p>
+                </div>
+            </div>-->
         </div>
         <p class="in-dev-message">In Development | Adding more projects...</p>
     </section>
@@ -91,8 +91,8 @@
             <div>
                 <h3>Tiris</h3>
                 <p>
-                    Infiltrate in Tiris Cathedral and recover your beloved's soul in this medieval, lowdark fantasy Top-Down Shooter. 
-                    Deal with hordes of enemies, solve the puzzles that block your path, 
+                    Infiltrate in Tiris Cathedral and recover your beloved's soul in this medieval, lowdark fantasy Top-Down Shooter.
+                    Deal with hordes of enemies, solve the puzzles that block your path,
                     and free your loved one and the people from the tyranny of the Necromancer and his commanders.
                 </p>
             </div>
@@ -221,13 +221,13 @@
         <div class="details-content">
             <p class="in-dev-message">In Development | Adding content to website...</p>
             <!--<div class="details-block">
-        <video src="videos/raftel-1.mp4" controls></video>
-        <p>Engine features demonstration: dynamic lighting, physics, and entity picking.</p>
-    </div>
-    <div class="details-block">
-        <video src="videos/raftel-2.mp4" controls></video>
-        <p>Custom tools and user interface powered by ImGui.</p>
-    </div>-->
+                <video src="videos/raftel-1.mp4" controls></video>
+                <p>Engine features demonstration: dynamic lighting, physics, and entity picking.</p>
+            </div>
+            <div class="details-block">
+                <video src="videos/raftel-2.mp4" controls></video>
+                <p>Custom tools and user interface powered by ImGui.</p>
+            </div>-->
         </div>
     </section>
 
@@ -301,12 +301,12 @@
         const codeText = `
 void AEnemy::Die()
 {
-                bIsDead = true;
-                PlayDeathAnimation();
+                    bIsDead = true;
+                    PlayDeathAnimation();
 
-                GetWorld()->GetTimerManager().SetTimer(DespawnTimer,
-                                        this, &AEnemy::DestroyEnemy,
-                                        5.0f, false);
+                    GetWorld()->GetTimerManager().SetTimer(DespawnTimer,
+                                            this, &AEnemy::DestroyEnemy,
+                                            5.0f, false);
 }
 `;
 
@@ -360,7 +360,7 @@ void AEnemy::Die()
             { src: 'videos/Tiris/pickups/cone_ammo_pickup.mp4', caption: 'Cone Ammo: Restores some of the shotgun\'s ammo' },
             { src: 'videos/Tiris/pickups/dmg_heal_pickups.mp4', caption: 'Damage Increase & Heal Pickup: First one increases damage for 10s & second one adds one health slot' },
             { src: 'videos/Tiris/pickups/infinite_ammo_pickup.mp4', caption: 'Infinite Ammo: gives infinite ammo for the next 10 seconds' }
-        ];                 
+        ];
 
         let currentPickup = 0;
         const pickupVideo = document.getElementById('pickupVideo');
@@ -440,7 +440,28 @@ void AEnemy::Die()
             uiVideo.play();
         }
     </script>
+    <script>
+        function filterProjects(tag) {
+            const boxes = document.querySelectorAll('.project-box');
+            boxes.forEach(box => {
+                const tags = box.getAttribute('data-tags').split(' ');
+                if (tag === 'all' || tags.includes(tag)) {
+                    box.style.display = 'flex'; // Mostrar
+                } else {
+                    box.style.display = 'none'; // Ocultar
+                }
+            });
 
+            // Opcional: marcar botón activo visualmente
+            document.querySelectorAll('.filters button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            const activeBtn = Array.from(document.querySelectorAll('.filters button')).find(btn =>
+                btn.textContent.toLowerCase().includes(tag)
+            );
+            if (activeBtn) activeBtn.classList.add('active');
+        }
+    </script>
 
 
     <script src="matrix.js"></script>
