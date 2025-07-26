@@ -658,6 +658,7 @@ html {
     padding: 20px;
     max-width: 1600px;
     margin: 0 auto;
+    transform: scale(0.8);
 }
 
 .achievement-grid {
@@ -875,4 +876,21 @@ html {
 
 .details-content {
     margin-top: -30px; /* o -40px si quieres aún más pegado */
+}
+
+.global-return {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99999;
+    background-color: #0f0;
+    color: #000;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 0 12px #0f0;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }

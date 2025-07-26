@@ -84,7 +84,6 @@
     </section>
 
     <section id="project-tiris" class="overlay project-details">
-        <button class="return-btn">← Return</button>
 
 
         <div class="tiris-description-container">
@@ -204,7 +203,6 @@
     </section>
     <!-- Raftel Engine Section -->
     <section id="project-raftel" class="overlay project-details">
-        <button class="return-btn">← Return</button>
 
         <div class="details-header">
             <img src="img/RaftelCover.png" alt="Raftel Engine Cover" />
@@ -240,7 +238,6 @@
 
     <!-- TrankiTanki Section -->
     <section id="project-trankitanki" class="overlay project-details">
-        <button class="return-btn">← Return</button>
 
         <div class="details-header">
             <img src="images/trankitanki-cover.jpg" alt="TrankiTanki Cover" />
@@ -285,7 +282,7 @@
             </div>
         </div>
     </section>
-
+    <button class="return-btn global-return" style="display: none;">← Return</button>
     <script>
         // Mostrar la sección del proyecto clicado
         document.querySelectorAll('[data-target]').forEach(card => {
@@ -298,8 +295,8 @@
                 const about = document.querySelector('#about');
                 if (about) about.style.display = 'none';
 
-                const contact = document.querySelector('#contact'); 
-                if (contact) contact.style.display = 'none';        
+                const contact = document.querySelector('#contact');
+                if (contact) contact.style.display = 'none';
 
                 // Ocultar todos los overlays
                 document.querySelectorAll('.project-details').forEach(section => {
@@ -315,36 +312,66 @@
         });
 
         // Botones de Return
-        document.querySelectorAll('.return-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Mostrar secciones generales
-                document.querySelector('#home').style.display = 'flex';
-                document.querySelector('#projects').style.display = 'block';
+        const globalReturn = document.querySelector('.global-return');
 
+        document.querySelectorAll('[data-target]').forEach(card => {
+            card.addEventListener('click', () => {
+                const targetId = card.getAttribute('data-target');
+
+                // Ocultar secciones generales
+                document.querySelector('#home').style.display = 'none';
+                document.querySelector('#projects').style.display = 'none';
                 const about = document.querySelector('#about');
-                if (about) about.style.display = 'block';
-
-                const contact = document.querySelector('#contact'); 
-                if (contact) contact.style.display = 'block';       
+                if (about) about.style.display = 'none';
+                const contact = document.querySelector('#contact');
+                if (contact) contact.style.display = 'none';
 
                 // Ocultar todos los overlays
                 document.querySelectorAll('.project-details').forEach(section => {
                     section.classList.remove('visible');
                 });
+
+                // Mostrar el overlay correspondiente
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.classList.add('visible');
+                }
+
+                // Mostrar el botón global
+                globalReturn.style.display = 'block';
             });
         });
+
+        globalReturn.addEventListener('click', () => {
+            // Mostrar secciones generales
+            document.querySelector('#home').style.display = 'flex';
+            document.querySelector('#projects').style.display = 'block';
+            const about = document.querySelector('#about');
+            if (about) about.style.display = 'block';
+            const contact = document.querySelector('#contact');
+            if (contact) contact.style.display = 'block';
+
+            // Ocultar todos los overlays
+            document.querySelectorAll('.project-details').forEach(section => {
+                section.classList.remove('visible');
+            });
+
+            // Ocultar el botón global
+            globalReturn.style.display = 'none';
+        });
+
 
     </script>
     <script>
         const codeText = `
 void AEnemy::Die()
 {
-                    bIsDead = true;
-                    PlayDeathAnimation();
+                        bIsDead = true;
+                        PlayDeathAnimation();
 
-                    GetWorld()->GetTimerManager().SetTimer(DespawnTimer,
-                                            this, &AEnemy::DestroyEnemy,
-                                            5.0f, false);
+                        GetWorld()->GetTimerManager().SetTimer(DespawnTimer,
+                                                this, &AEnemy::DestroyEnemy,
+                                                5.0f, false);
 }
 `;
 
