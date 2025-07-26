@@ -836,7 +836,13 @@ html {
     margin: auto;
 }
 
-
+.tiris-img {
+    width: 280px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.15);
+    flex-shrink: 0;
+}
 .tiris-text {
     flex: 1 1 700px;
     max-width: 800px;
