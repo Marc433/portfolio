@@ -861,11 +861,14 @@ html {
     flex: 0 0 646px;
     height: 190px;
 }
-.steam-widget iframe {
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.15);
-    max-width: 100%;
-}
+    .steam-widget iframe {
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 255, 136, 0.15);
+        max-width: 100%;
+        display: block;
+        vertical-align: bottom;
+    }
+
 
 .global-return {
     position: fixed;
