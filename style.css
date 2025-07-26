@@ -832,8 +832,7 @@ html {
 }
 .tiris-description-container {
     display: flex;
-    flex-wrap: nowrap; 
-    align-items: flex-start;
+    flex-wrap: wrap;
     gap: 40px;
     justify-content: center;
     align-items: flex-start;
@@ -858,8 +857,13 @@ html {
     gap: 20px;
 }
 .steam-widget {
-    flex: 0 0 646px;
-    height: 190px;
+    display: block;
+    width: fit-content;
+    height: auto;
+}
+
+.steam-widget:empty {
+    display: none;
 }
 .steam-widget iframe {
     border-radius: 10px;
