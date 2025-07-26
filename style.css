@@ -618,7 +618,7 @@ html {
     padding: 20px;
     max-width: 1600px;
     margin: 0 auto;
-    transform: scale(0.5);
+    transform: scale(0.8);
 }
 
 .pickup-slider video {
@@ -837,12 +837,13 @@ html {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
-    justify-content: center; 
+    justify-content: center;
     align-items: flex-start;
     max-width: 1600px;
     margin: auto;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
 }
-
 .tiris-img {
     width: 280px;
     height: auto;
