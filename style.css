@@ -593,22 +593,22 @@ html {
     gap: 20px;
 }
 
-    .slider-controls button {
-        background-color: #0f0;
-        border: none;
-        padding: 10px 18px;
-        font-size: 1.2rem;
-        color: #000;
-        font-weight: bold;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: all 0.2s ease;
-    }
+.slider-controls button {
+    background-color: #0f0;
+    border: none;
+    padding: 10px 18px;
+    font-size: 1.2rem;
+    color: #000;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
 
-        .slider-controls button:hover {
-            background-color: #0c0;
-            box-shadow: 0 0 10px #00ff88;
-        }
+    .slider-controls button:hover {
+        background-color: #0c0;
+        box-shadow: 0 0 10px #00ff88;
+    }
 
 .pickup-row {
     display: grid;
@@ -618,6 +618,7 @@ html {
     padding: 20px;
     max-width: 1600px;
     margin: 0 auto;
+    transform: scale(0.5);
 }
 
 .pickup-slider video {
@@ -821,6 +822,7 @@ html {
     color: #00ff88;
     text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
     margin-bottom: 1rem;
+    animation: glowFade 3s ease-in-out infinite;
 }
 .contact-section h2 {
     text-align: center;
@@ -867,9 +869,9 @@ html {
 }
 
 .tiris-description-container {
-    margin-bottom: 20px; 
+    margin-bottom: 0 !important;
 }
 
 .details-content {
-    margin-top: 0; 
+    margin-top: -30px; /* o -40px si quieres aún más pegado */
 }
