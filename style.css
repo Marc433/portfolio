@@ -768,15 +768,20 @@ html {
     padding: 80px 20px;
     box-shadow: 0 0 30px rgba(0, 255, 136, 0.1);
     margin-top: 100px;
+    width: 100vw; /* Ocupa todo el ancho */
+    left: 0;
+    position: relative;
 }
 
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 40px;
-    max-width: 900px;
+    max-width: 1200px;
+    width: 100%;
     margin: auto;
     text-align: left;
+    padding: 0 40px; /* margen lateral interno */
 }
 
 .contact-item {
