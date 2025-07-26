@@ -292,6 +292,9 @@
                 const about = document.querySelector('#about');
                 if (about) about.style.display = 'none';
 
+                const contact = document.querySelector('#contact'); 
+                if (contact) contact.style.display = 'none';        
+
                 // Ocultar todos los overlays
                 document.querySelectorAll('.project-details').forEach(section => {
                     section.classList.remove('visible');
@@ -311,8 +314,12 @@
                 // Mostrar secciones generales
                 document.querySelector('#home').style.display = 'flex';
                 document.querySelector('#projects').style.display = 'block';
+
                 const about = document.querySelector('#about');
                 if (about) about.style.display = 'block';
+
+                const contact = document.querySelector('#contact'); 
+                if (contact) contact.style.display = 'block';       
 
                 // Ocultar todos los overlays
                 document.querySelectorAll('.project-details').forEach(section => {
@@ -320,6 +327,7 @@
                 });
             });
         });
+
     </script>
     <script>
         const codeText = `
