@@ -503,7 +503,7 @@ a {
     font-family: 'Courier New', monospace;
     color: #00ff88;
     font-size: 1rem;
-    width: 500px; /* ← ocupa el ancho del grid */
+    width: 300px; /* ← ocupa el ancho del grid */
     /*max-width: 1000px;*/ /* ← no se pase de esto */
     height: 400px;
     overflow: hidden;
