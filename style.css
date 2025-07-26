@@ -193,9 +193,6 @@ a {
         text-justify: inter-word;
         max-width: none;
     }
-.details-content .details-block {
-    margin-bottom: 30px;
-}
 
 .details-content video {
     width: 100%;
@@ -448,7 +445,7 @@ a {
 
 /* Ajustes a los videos de detalles */
 .details-content .details-block {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     padding: 0 40px;
     width: 100%;
     max-width: 1600px;
@@ -868,14 +865,6 @@ html {
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 255, 136, 0.15);
     max-width: 100%;
-}
-
-.tiris-description-container {
-    margin-bottom: 0 !important;
-}
-
-.details-content {
-    margin-top: -30px; /* o -40px si quieres aún más pegado */
 }
 
 .global-return {
