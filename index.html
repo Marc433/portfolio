@@ -366,16 +366,17 @@
         const codeText = `
 void AEnemy::Die()
 {
-                        bIsDead = true;
-                        PlayDeathAnimation();
+        bIsDead = true;
+        PlayDeathAnimation();
 
-                        GetWorld()->GetTimerManager().SetTimer(DespawnTimer,
-                                                this, &AEnemy::DestroyEnemy,
-                                                5.0f, false);
+        GetWorld()->GetTimerManager().SetTimer(DespawnTimer,
+                                this, &AEnemy::DestroyEnemy,
+                                5.0f, false);
 }
 `;
 
         const codeBlock = document.getElementById("codeBlock");
+
         let index = 0;
 
         function typeCharacter() {
