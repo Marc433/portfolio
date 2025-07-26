@@ -775,7 +775,7 @@ html {
 
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 40px;
     max-width: 1200px;
     width: 100%;
@@ -813,3 +813,13 @@ html {
     .contact-item:hover {
         transform: scale(1.05);
     }
+
+.contact-section h2 {
+    text-align: center;
+    font-size: 4.5rem;
+    font-weight: 800;
+    color: #00ff88;
+    text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+    margin-bottom: 40px;
+    animation: glowFade 3s ease-in-out infinite;
+}
