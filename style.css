@@ -823,3 +823,25 @@ html {
     margin-bottom: 40px;
     animation: glowFade 3s ease-in-out infinite;
 }
+.tiris-description-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.tiris-text {
+    max-width: 700px;
+}
+
+.steam-link img {
+    height: 100px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.15);
+}
+
+    .steam-link img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+    }
