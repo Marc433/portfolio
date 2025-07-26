@@ -816,7 +816,12 @@ html {
     .contact-item:hover {
         transform: scale(1.05);
     }
-
+.tiris-title {
+    font-size: 2rem;
+    color: #00ff88;
+    text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+    margin-bottom: 1rem;
+}
 .contact-section h2 {
     text-align: center;
     font-size: 4.5rem;
@@ -859,4 +864,12 @@ html {
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 255, 136, 0.15);
     max-width: 100%;
+}
+
+.tiris-description-container {
+    margin-bottom: 20px; 
+}
+
+.details-content {
+    margin-top: 0; 
 }
