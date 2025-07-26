@@ -14,7 +14,7 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#projects">My Projects</a></li>
-                <li><a href="#about">About Me</a></li>
+                <li><a href="#contact">Contact Me</a></li>
             </ul>
         </nav>
     </header>
@@ -44,6 +44,7 @@
             <button onclick="filterProjects('unreal')">Unreal Engine</button>
             <button onclick="filterProjects('cpp')">C++</button>
             <button onclick="filterProjects('unity')">Unity</button>
+            <button onclick="filterProjects('android')">Android</button>
         </div>
         <div class="projects-grid" id="projectsGrid">
             <div class="project-box" data-tags="all unreal cpp" data-target="project-tiris">
@@ -255,7 +256,23 @@
             </div>
         </div>
     </section>
-
+    <section id="contact" class="section">
+        <h2>Contact Me</h2>
+        <div class="contact-container">
+            <div class="contact-item">
+                <strong>Email:</strong> <a href="mailto:marcjoelfb@gmail.com">marcjoelfb@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <strong>Phone:</strong> <a href="tel:+34656368537">+34 656 368 537</a>
+            </div>
+            <div class="contact-item">
+                <a href="https://www.linkedin.com/in/marc-folgado-balb%C3%A1s-786335370/" target="_blank">Marc Folgado Balbás</a>
+            </div>
+            <div class="contact-item">
+                <strong>GitHub:</strong> <a href="https://github.com/Marc433" target="_blank">github.com/Marc433</a>
+            </div>
+        </div>
+    </section>
     <script>
         // Mostrar la sección del proyecto clicado
         document.querySelectorAll('[data-target]').forEach(card => {
@@ -301,12 +318,12 @@
         const codeText = `
 void AEnemy::Die()
 {
-                    bIsDead = true;
-                    PlayDeathAnimation();
+                        bIsDead = true;
+                        PlayDeathAnimation();
 
-                    GetWorld()->GetTimerManager().SetTimer(DespawnTimer,
-                                            this, &AEnemy::DestroyEnemy,
-                                            5.0f, false);
+                        GetWorld()->GetTimerManager().SetTimer(DespawnTimer,
+                                                this, &AEnemy::DestroyEnemy,
+                                                5.0f, false);
 }
 `;
 
