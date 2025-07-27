@@ -921,8 +921,9 @@ html {
     }
 
 .docs-icon {
-    width: 32px;
     height: 32px;
+    width: auto; 
+    max-width: 48px; 
     filter: drop-shadow(0 0 4px #00ff88);
 }
 .raftel-info-wrapper {
