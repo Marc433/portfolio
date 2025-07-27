@@ -894,9 +894,10 @@ html {
 .docs-link {
     display: flex;
     align-items: center;
+    justify-content: center; 
     gap: 12px;
     margin-top: 20px;
-    padding: 14px 22px;
+    padding: 20px; 
     background-color: rgba(0, 255, 136, 0.08);
     border: 2px solid #00ff88;
     border-radius: 10px;
@@ -907,8 +908,10 @@ html {
     box-shadow: 0 0 12px rgba(0, 255, 136, 0.2);
     text-decoration: none;
     transition: all 0.3s ease;
-    width: fit-content;
+    width: 100%; 
+    box-sizing: border-box; 
 }
+
 
     .docs-link:hover {
         background-color: #00ff88;
@@ -927,4 +930,5 @@ html {
     flex-direction: column;
     align-items: center;
     gap: 12px;
+    width: 280px;
 }
