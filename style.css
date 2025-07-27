@@ -567,14 +567,6 @@ html {
     pointer-events: none;
 }
 
-.project-box:hover .preview-img {
-    opacity: 0;
-}
-
-.project-box:hover .preview-video {
-    opacity: 1;
-}
-
 .pickup-slider {
     width: 100%;
     display: flex;
