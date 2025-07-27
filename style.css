@@ -933,3 +933,11 @@ html {
     gap: 12px;
     width: 280px;
 }
+
+.has-video:hover .preview-img {
+    opacity: 0;
+}
+
+.has-video:hover .preview-video {
+    opacity: 1;
+}
