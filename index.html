@@ -3,54 +3,56 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Marc's Portfolio</title>
+    <title>Marc Folgado | C++ & Unreal Engine Programmer</title>
+<meta name="description" content="Marc Folgado — C++ / Unreal Engine programmer. Runtime tools, animation systems, gameplay and graphics programming.">
     <link rel="icon" type="image/png" href="img/icon.png" />
     <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body><a class="skip-link" href="#projects">Skip to projects</a>
     <header>
         <nav class="navbar">
-            <h1>Marc's Portfolio</h1>
+            <a class="brand" href="#home">Marc Folgado<span> / portfolio</span></a>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#projects">My Projects</a></li>
                 <li><a href="#contact">Contact Me</a></li>
             </ul>
-        </nav>
+        <div class="language-switch" role="group" aria-label="Language / Idioma"><button data-lang="es" lang="es">ES</button><button data-lang="en" lang="en">EN</button></div></nav>
     </header>
 
     <section id="home" class="fullscreen-section home-layout">
         <div class="home-content">
             <div class="text-area">
                 <h1 class="main-name">Marc Folgado Balbás</h1>
-                <h2 class="role">Game Developer & Graphics Programmer</h2>
+                <h2 class="role">C++ / Unreal Engine Programmer</h2>
                 <p class="summary">
-                    Specialized in Unreal Engine 5 and C++. Focused on gameplay systems, custom engines, and player-centered experiences.
+                    I build runtime tools, animation systems and gameplay in Unreal Engine 5. C++ development from custom graphics engines to AI integrations.
                 </p>
                 <div class="button-group">
-                    <a href="img/CV_Marc_Folgado.pdf" class="btn download-btn" download>Download CV</a>
+                    <button class="btn download-btn" id="openCV">Download CV</button>
                     <a href="#projects" class="btn secondary-btn">See Projects</a>
                 </div>
             </div>
             <div class="code-box">
-                <pre id="codeBlock"></pre>
+                <span class="code-label">runtime.cpp</span><pre id="codeBlock">// Tools that run with the game.
+class UAnimationEditor
+{
+public:
+    void SelectBone(FName Bone);
+    void SetKeyframe(float Time);
+    void PreviewAnimation();
+};</pre><span class="code-status">C++ / Unreal Engine 5</span>
             </div>
         </div>
     </section>
     <section id="projects" class="section">
         <h2>My Projects</h2>
-        <div class="filters">
-            <button onclick="filterProjects('all')">All</button>
-            <button onclick="filterProjects('unreal')">Unreal Engine</button>
-            <button onclick="filterProjects('cpp')">C++</button>
-            <button onclick="filterProjects('unity')">Unity</button>
-            <button onclick="filterProjects('android')">Android</button>
-        </div>
-        <div class="projects-grid" id="projectsGrid">
+        <div class="filters"><button data-filter="all" class="active" aria-pressed="true">All</button><button data-filter="work" aria-pressed="false">Professional work</button><button data-filter="unreal" aria-pressed="false">Unreal Engine</button><button data-filter="cpp" aria-pressed="false">C++</button></div>
+        <div class="projects-grid" id="projectsGrid"><div class="project-box work-card" data-tags="all work unreal cpp" data-target="project-animation"><div class="work-visual"><span>01 / RUNTIME TOOLS</span><strong>{ anim }</strong><small>Control Rig · C++ · Blueprints</small></div><div class="project-info"><p class="eyebrow">MystherAI · Apr 2026 — Present</p><h3>Runtime Animation Editor</h3><p>Runtime animation tools: frame editing, bone manipulation and timeline workflows.</p></div></div><div class="project-box work-card" data-tags="all work unreal cpp" data-target="project-mcp"><div class="work-visual"><span>02 / AI INTEGRATION</span><strong>&lt; MCP /&gt;</strong><small>MCP · HTTP · WebSocket</small></div><div class="project-info"><p class="eyebrow">HechicerIA · Nov 2025 — Apr 2026</p><h3>Unreal Engine × AI</h3><p>An MCP integration connecting AI models to Unreal Engine functionality.</p></div></div>
             <div class="project-box has-video" data-tags="all unreal cpp" data-target="project-tiris">
                 <div class="media-container">
-                    <img src="img/TirisThumbnail.png" class="preview-img" />
-                    <video src="videos/Tiris/TirisPreview.mp4" class="preview-video" muted playsinline preload="auto"></video>
+                    <img src="img/TirisThumbnail.png" alt="Tiris gameplay" class="preview-img" />
+                    <video src="videos/Tiris/TirisPreview.mp4" class="preview-video" muted playsinline preload="none"></video>
                 </div>
                 <div class="project-info">
                     <h3>Tiris</h3>
@@ -58,9 +60,9 @@
                 </div>
             </div>
 
-            <div class="project-box" data-tags="all c++" data-target="project-raftel">
+            <div class="project-box" data-tags="all cpp" data-target="project-raftel">
                 <div class="media-container">
-                    <img src="img/RaftelThumbnail.png" class="preview-img" />
+                    <img src="img/RaftelThumbnail.png" alt="Raftel Engine" class="preview-img" />
                 </div>
                 <div class="project-info">
                     <h3>Raftel Engine</h3>
@@ -68,44 +70,33 @@
                 </div>
             </div>
 
-            <!--<div class="project-box" data-tags="all unreal c++" data-target="project-trankitanki">
-                <div class="media-container">
-                    <img src="img/TankiThumbnail.png" class="preview-img" />
-                    <video src="videos/trankitanki-preview.mp4"  class="preview-video" muted playsinline preload="auto"></video>
-                </div>
-                <div class="project-info">
-                    <h3>TrankiTanki</h3>
-                    <p>Wave-based shooter made in Unreal Engine using C++.</p>
-                </div>
-            </div>-->
+            
         </div>
-        <p class="in-dev-message">In Development | Adding more projects...</p>
+        
     </section>
 
     <section id="project-tiris" class="overlay project-details">
 
 
         <div class="tiris-description-container">
-            <img class="tiris-img" src="img/TirisPoster.png" class="tiris-img" />
+            <img class="tiris-img" src="img/TirisPoster.png" alt="Tiris" />
 
             <div class="tiris-text">
                 <h3 class="tiris-title">Tiris</h3>
-                <p>
-                    In a world ravaged by the Emerald Plague, death is not the end... it’s only the beginning of corruption.
+                <p>In a world ravaged by the Emerald Plague, death is not the end... it’s only the beginning of corruption.
                     In Tiris, you embody Liria, an alchemist and sorceress determined to defy death itself to save her beloved Narcis,
                     turned into an abomination in the service of a dark Necromancer. Face hordes of infected, solve ancient puzzles,
-                    and unravel the cursed secrets of a disgraced cathedral.
-                </p>
+                    and unravel the cursed secrets of a disgraced cathedral.</p>
 
                 <div class="steam-widget">
-                    <iframe src="https://store.steampowered.com/widget/3719100/" width="646" height="190" frameborder="0"></iframe>
+                    <iframe title="Tiris on Steam" loading="lazy" src="https://store.steampowered.com/widget/3719100/" width="646" height="190" frameborder="0"></iframe>
                 </div>
             </div>
         </div>
         <div class="details-content">
             <div class="details-block pickup-row">
                 <div class="pickup-slider">
-                    <video id="pickupVideo" src="videos/Tiris/pickups/soul_pickup.mp4" controls></video>
+                    <video id="pickupVideo" src="videos/Tiris/pickups/soul_pickup.mp4" controls playsinline preload="none"></video>
                     <p id="pickupCaption">Soul Pickup: Increases player's souls, which can be consumed to heal.</p>
                     <div class="slider-controls">
                         <button id="prevPickup">←</button>
@@ -114,21 +105,19 @@
                 </div>
                 <div class="pickup-description">
                     <h4>Pickup & Inventory System</h4>
-                    <p>
-                        There are 9 different pickups in total, each explained in the slider on the left.
+                    <p>There are 9 different pickups in total, each explained in the slider on the left.
                         These can either be already placed in the map or dropped dynamically via the
                         <strong>DropComponent</strong>. This component is used by enemies or destructibles,
                         allowing full control over the type of pickups that can be dropped and their
                         drop probability (including the chance of dropping nothing).
                         <br /><br />
                         The <strong>InventoryComponent</strong> manages the player’s collected pickups,
-                        registering and enabling logic for usage, stacking and consumption of each item.
-                    </p>
+                        registering and enabling logic for usage, stacking and consumption of each item.</p>
                 </div>
             </div>
             <div class="details-block pickup-row">
                 <div class="pickup-slider">
-                    <video id="enemyVideo" src="videos/Tiris/enemies/melee_enemy.mp4" controls></video>
+                    <video id="enemyVideo" src="videos/Tiris/enemies/melee_enemy.mp4" controls playsinline preload="none"></video>
                     <p id="enemyCaption">Melee Enemy: Chases the player and performs short-range attacks.</p>
                     <div class="slider-controls">
                         <button id="prevEnemy">←</button>
@@ -137,20 +126,18 @@
                 </div>
                 <div class="pickup-description">
                     <h4>Enemy AI System</h4>
-                    <p>
-                        All enemy types are powered by <strong>Behavior Trees</strong> and
+                    <p>All enemy types are powered by <strong>Behavior Trees</strong> and
                         <strong>AIPerception</strong> with visual sensing. Detection radius is smaller behind the
                         enemy, simulating vision cones. Enemies inherit from a shared
                         <strong>EnemyBase</strong> class, which defines health, movement, and damage logic.
                         <br /><br />
                         There are 3 archetypes: <em>melee</em>, <em>ranged</em>, and <em>explosive</em>, each with
-                        their own behaviors and abilities.
-                    </p>
+                        their own behaviors and abilities.</p>
                 </div>
             </div>
             <div class="details-block pickup-row">
                 <div class="pickup-slider">
-                    <video id="uiVideo" src="videos/Tiris/TutorialsVideo.mp4" controls></video>
+                    <video id="uiVideo" src="videos/Tiris/TutorialsVideo.mp4" controls playsinline preload="none"></video>
                     <p id="uiCaption">Tutorial Box: Shows keyboard or controller buttons depending on current input.</p>
                     <div class="slider-controls">
                         <button id="prevUI">←</button>
@@ -159,11 +146,9 @@
                 </div>
                 <div class="pickup-description">
                     <h4>Dynamic UI & Video Playback</h4>
-                    <p>
-                        The <strong>tutorial boxes</strong> are context-sensitive prompts that automatically adapt their appearance based on the player's current input method — keyboard & mouse or gamepad. This ensures clarity and fluid tutorials for both control schemes.
+                    <p>The <strong>tutorial boxes</strong> are context-sensitive prompts that automatically adapt their appearance based on the player's current input method — keyboard & mouse or gamepad. This ensures clarity and fluid tutorials for both control schemes.
                         <br /><br />
-                        Meanwhile, <strong>videos</strong> such as logos and intro cutscenes were seamlessly integrated using Unreal's <code>MediaPlayer</code> system. This allows in-game video playback, audio sync, and transitions to be fully controlled via C++ or Blueprints.
-                    </p>
+                        Meanwhile, <strong>videos</strong> such as logos and intro cutscenes were seamlessly integrated using Unreal's <code>MediaPlayer</code> system. This allows in-game video playback, audio sync, and transitions to be fully controlled via C++ or Blueprints.</p>
                 </div>
             </div>
 
@@ -189,24 +174,22 @@
                 </div>
                 <div class="achievement-description">
                     <h4>Steam Achievements Integration</h4>
-                    <p>
-                        All 17 achievements were integrated using the Steam Online Subsystem and a custom <strong>Achievement Subsystem</strong>.
+                    <p>All 17 achievements were integrated using the Steam Online Subsystem and a custom <strong>Achievement Subsystem</strong>.
                         The system handles initialization, caching, progress tracking, and communication with the Steam backend.
                         <br /><br />
                         Progress-based achievements are updated using a stat-based system and unlocked when specific thresholds are met.
-                        Logic is encapsulated in <code>TDAchievementSubsystem</code> and <code>TDSteamAchievements</code>, ensuring achievements persist across sessions.
-                    </p>
+                        Logic is encapsulated in <code>TDAchievementSubsystem</code> and <code>TDSteamAchievements</code>, ensuring achievements persist across sessions.</p>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Raftel Engine Section -->
+    
     <section id="project-raftel" class="overlay project-details">
 
         <div class="details-header">
             <div class="raftel-info-wrapper">
                 <img src="img/RaftelCover.png" alt="Raftel Engine Cover" />
-                <a href="https://carlosmazcu.github.io/doc-raftel/index.html" target="_blank" class="docs-link">
+                <a href="https://carlosmazcu.github.io/doc-raftel/index.html" target="_blank" rel="noopener noreferrer" class="docs-link">
                     <img src="img/RaftelHat.png" alt="Documentation" class="docs-icon">
                     <span>Raftel's Documentation</span>
                 </a>
@@ -214,59 +197,28 @@
 
             <div>
                 <h3>Raftel Engine</h3>
-                <p>
-                    Together with <strong>Carlos Mazcuñán Blanes</strong>, I’ve built <strong>Raftel Engine</strong>, a custom graphics engine in C++ and OpenGL crafted for maximum versatility and performance.
+                <p>Together with <strong>Carlos Mazcuñán Blanes</strong>, I’ve built <strong>Raftel Engine</strong>, a custom graphics engine in C++ and OpenGL crafted for maximum versatility and performance.
                     <br /><br />
                     It supports both <strong>forward and deferred rendering pipelines</strong>, <strong>HDR lighting</strong>, and fully <strong>configurable bloom</strong>, enabling cinematic visuals and optimal performance across diverse scenes.
                     <br /><br />
-                    The engine’s <strong>BR materials</strong> simulate realistic metalness and roughness, while a robust <strong>3D physics system</strong> handles gravity and collision for both static and dynamic entities.
+                    The engine’s <strong>PBR materials</strong> simulate realistic metalness and roughness, while a robust <strong>3D physics system</strong> handles gravity and collision for both static and dynamic entities.
                     <br /><br />
                     To simplify development, we implemented an <strong>Entity Component System (ECS)</strong>, and built an in-engine <strong>editor using Dear ImGui</strong>, allowing designers and developers to spawn and configure entities at runtime—adding meshes, lights, physics properties, and working with input binding in real time.
                     <br /><br />
                     The engine also integrates a flexible <strong>Input System</strong>, enabling seamless switching between keyboard, mouse, and controller inputs during gameplay.
-                    <br /><br />
-                    We continue refining Raftel with new graphical effects, runtime editing tools, and enhanced workflow features to empower creative and prototyping workflows.
-                </p>
+                    </p>
             </div>
         </div>
             <div class="details-content">
-                <p class="in-dev-message">In Development | Adding content to website...</p>
-                <!--<div class="details-block">
-            <video src="videos/raftel-1.mp4" controls></video>
-            <p>Engine features demonstration: dynamic lighting, physics, and entity picking.</p>
-        </div>
-        <div class="details-block">
-            <video src="videos/raftel-2.mp4" controls></video>
-            <p>Custom tools and user interface powered by ImGui.</p>
-        </div>-->
+                
+                
             </div>
 
 </section>
 
-    <!-- TrankiTanki Section -->
-    <section id="project-trankitanki" class="overlay project-details">
+    
 
-        <div class="details-header">
-            <img src="images/trankitanki-cover.jpg" alt="TrankiTanki Cover" />
-            <div>
-                <h3>TrankiTanki</h3>
-                <p>
-                    Wave-based action game built in Unreal Engine using C++. Players face hordes of enemies while upgrading tanks and managing resources.
-                </p>
-            </div>
-        </div>
-        <div class="details-content">
-            <div class="details-block">
-                <video src="videos/trankitanki-1.mp4" controls></video>
-                <p>Enemy wave system, player upgrades, and dynamic UI elements.</p>
-            </div>
-            <div class="details-block">
-                <video src="videos/trankitanki-2.mp4" controls></video>
-                <p>Core gameplay and level design with AI enemy behaviors.</p>
-            </div>
-        </div>
-    </section>
-    <section id="contact" class="contact-section">
+<section id="project-animation" class="overlay project-details"><div class="work-detail"><p class="eyebrow">MystherAI · Apr 2026 — Present</p><h3>Runtime Animation Editor</h3><p class="lead">Runtime animation editing in Unreal Engine 5, designed to work directly in packaged builds.</p><div class="work-points"><article><h4>Development</h4><p>Frame editing, bone selection and transformation, timeline workflows and character manipulation.</p></article><article><h4>Architecture</h4><p>C++ / Blueprints architecture evolving toward Control Rig, without dependencies on editor-only tools.</p></article><article><h4>Integration</h4><p>Reusable components and interfaces for integrating animation editing into the application.</p></article></div><p class="tech-line">Unreal Engine 5 · Control Rig · C++ · Blueprints</p></div></section><section id="project-mcp" class="overlay project-details"><div class="work-detail"><p class="eyebrow">HechicerIA · Nov 2025 — Apr 2026</p><h3>Unreal Engine × AI</h3><p class="lead">Integration between Unreal Engine 5 and AI models through Model Context Protocol (MCP).</p><div class="work-points"><article><h4>Development</h4><p>Engine functionality executed through requests generated by an AI model.</p></article><article><h4>Architecture</h4><p>HTTP / WebSocket communication, asynchronous workflows and dynamic tool registration and execution in C++.</p></article><article><h4>Integration</h4><p>Runtime subsystems and interfaces designed for packaged builds and external services.</p></article></div><p class="tech-line">Unreal Engine 5 · MCP · HTTP · WebSocket</p></div></section>    <section id="contact" class="contact-section">
         <h2>Contact Me</h2>
         <div class="contact-grid">
             <div class="contact-item">
@@ -279,264 +231,25 @@
             </div>
             <div class="contact-item">
                 <strong>LinkedIn:</strong>
-                <a href="https://www.linkedin.com/in/marc-folgado-balb%C3%A1s-786335370/" target="_blank">
+                <a href="https://www.linkedin.com/in/marc-folgado-balb%C3%A1s-786335370/" target="_blank" rel="noopener noreferrer">
                     linkedin.com/in/marc-folgado
                 </a>
             </div>
             <div class="contact-item">
                 <strong>GitHub:</strong>
-                <a href="https://github.com/Marc433" target="_blank">github.com/Marc433</a>
+                <a href="https://github.com/Marc433" target="_blank" rel="noopener noreferrer">github.com/Marc433</a>
             </div>
         </div>
     </section>
-    <button class="global-return" style="display: none;">← Return</button>
-    <script>
-        // Mostrar la sección del proyecto clicado
-        document.querySelectorAll('[data-target]').forEach(card => {
-            card.addEventListener('click', () => {
-                const targetId = card.getAttribute('data-target');
+    <button class="global-return" hidden>← Return</button>
+    
+    
 
-                // Ocultar secciones generales
-                document.querySelector('#home').style.display = 'none';
-                document.querySelector('#projects').style.display = 'none';
-                const about = document.querySelector('#about');
-                if (about) about.style.display = 'none';
-
-                const contact = document.querySelector('#contact');
-                if (contact) contact.style.display = 'none';
-
-                // Ocultar todos los overlays
-                document.querySelectorAll('.project-details').forEach(section => {
-                    section.classList.remove('visible');
-                });
-
-                // Mostrar el overlay correspondiente
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    targetSection.classList.add('visible');
-                }
-            });
-        });
-
-        // Botones de Return
-        const globalReturn = document.querySelector('.global-return');
-
-        document.querySelectorAll('[data-target]').forEach(card => {
-            card.addEventListener('click', () => {
-                const targetId = card.getAttribute('data-target');
-
-                // Ocultar secciones generales
-                document.querySelector('#home').style.display = 'none';
-                document.querySelector('#projects').style.display = 'none';
-                const about = document.querySelector('#about');
-                if (about) about.style.display = 'none';
-                const contact = document.querySelector('#contact');
-                if (contact) contact.style.display = 'none';
-
-                // Ocultar todos los overlays
-                document.querySelectorAll('.project-details').forEach(section => {
-                    section.classList.remove('visible');
-                });
-
-                // Mostrar el overlay correspondiente
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    targetSection.classList.add('visible');
-                }
-
-                // Mostrar el botón global
-                globalReturn.style.display = 'block';
-            });
-        });
-
-        globalReturn.addEventListener('click', () => {
-            // Mostrar secciones generales
-            document.querySelector('#home').style.display = 'flex';
-            document.querySelector('#projects').style.display = 'block';
-            const about = document.querySelector('#about');
-            if (about) about.style.display = 'block';
-            const contact = document.querySelector('#contact');
-            if (contact) contact.style.display = 'block';
-
-            // Ocultar todos los overlays
-            document.querySelectorAll('.project-details').forEach(section => {
-                section.classList.remove('visible');
-            });
-
-            // Ocultar el botón global
-            globalReturn.style.display = 'none';
-        });
+    
+    
+    
 
 
-    </script>
-    <script>
-        const codeText = `
-void AEnemy::Die()
-{
-    bIsDead = true;
-    PlayDeathAnimation();
-
-    GetWorld()->GetTimerManager().SetTimer(DespawnTimer,
-                            this, &AEnemy::DestroyEnemy,
-                            5.0f, false);
-}
-`;
-
-        const codeBlock = document.getElementById("codeBlock");
-
-        let index = 0;
-
-        function typeCharacter() {
-            if (index < codeText.length) {
-                codeBlock.textContent += codeText[index];
-                index++;
-                setTimeout(typeCharacter, 20); // velocidad de escritura
-            } else {
-                setTimeout(() => {
-                    codeBlock.textContent = "";
-                    index = 0;
-                    typeCharacter();
-                }, 2000); // espera antes de reiniciar
-            }
-        }
-
-        typeCharacter();
-    </script>
-
-    <script>
-        document.querySelectorAll('.project-box').forEach(box => {
-            const video = box.querySelector('.preview-video');
-
-            box.addEventListener('mouseenter', () => {
-                if (video) {
-                    video.currentTime = 0;
-                    video.play();
-                }
-            });
-
-            box.addEventListener('mouseleave', () => {
-                if (video) {
-                    video.pause();
-                    video.currentTime = 0;
-                }
-            });
-        });
-
-    </script>
-    <script>
-        const pickupVideos = [
-            { src: 'videos/Tiris/pickups/soul_pickup.mp4', caption: 'Soul Pickup: Increases player\'s souls, which can be consumed to heal.' },
-            { src: 'videos/Tiris/pickups/shield_pickup.mp4', caption: 'Shield Pickup: Protects player from one hit.' },
-            { src: 'videos/Tiris/pickups/freeze_pickup.mp4', caption: 'Freeze Pickup: Freezes all enemies inside the area of effect' },
-            { src: 'videos/Tiris/pickups/grenade_ammo_pickup.mp4', caption: 'Grenade Ammo: Restores some of the grenade\'s ammo' },
-            { src: 'videos/Tiris/pickups/ulti_pickup.mp4', caption: 'Ulti Pickup: Charges one slot for the player\'s ultimate' },
-            { src: 'videos/Tiris/pickups/cone_ammo_pickup.mp4', caption: 'Cone Ammo: Restores some of the shotgun\'s ammo' },
-            { src: 'videos/Tiris/pickups/dmg_heal_pickups.mp4', caption: 'Damage Increase & Heal Pickup: First one increases damage for 10s & second one adds one health slot' },
-            { src: 'videos/Tiris/pickups/infinite_ammo_pickup.mp4', caption: 'Infinite Ammo: gives infinite ammo for the next 10 seconds' }
-        ];
-
-        let currentPickup = 0;
-        const pickupVideo = document.getElementById('pickupVideo');
-        const pickupCaption = document.getElementById('pickupCaption');
-
-        document.getElementById('prevPickup').addEventListener('click', () => {
-            currentPickup = (currentPickup - 1 + pickupVideos.length) % pickupVideos.length;
-            updatePickupSlide();
-        });
-
-        document.getElementById('nextPickup').addEventListener('click', () => {
-            currentPickup = (currentPickup + 1) % pickupVideos.length;
-            updatePickupSlide();
-        });
-
-        function updatePickupSlide() {
-            pickupVideo.src = pickupVideos[currentPickup].src;
-            pickupCaption.textContent = pickupVideos[currentPickup].caption;
-            pickupVideo.load();
-            pickupVideo.play();
-        }
-
-        const enemyVideos = [
-            { src: 'videos/Tiris/enemies/melee_enemy.mp4', caption: 'Melee Enemy: Chases the player and performs short-range attacks.' },
-            { src: 'videos/Tiris/enemies/ranged_enemy.mp4', caption: 'Ranged Enemy: Fires projectiles from a distance while strafing.' },
-            { src: 'videos/Tiris/enemies/explosive_enemy.mp4', caption: 'Explosive Enemy: Charges toward the player and self-destructs.' },
-            { src: 'videos/Tiris/enemies/sniper_enemy.mp4', caption: 'Sniper Enemy: Remains static, charging high-damage shots from afar.' },
-            { src: 'videos/Tiris/enemies/tank_enemy.mp4', caption: 'Tank Enemy: Protected by a frontal shield. Attacks in melee and throws grenades from a distance.' },
-            { src: 'videos/Tiris/enemies/hidden_enemy.mp4', caption: 'Gargoyle Enemy: Dormant statues that activate when approached, acting as fast melee attackers.' }
-        ];
-
-        let currentEnemy = 0;
-        const enemyVideo = document.getElementById('enemyVideo');
-        const enemyCaption = document.getElementById('enemyCaption');
-
-        document.getElementById('prevEnemy').addEventListener('click', () => {
-            currentEnemy = (currentEnemy - 1 + enemyVideos.length) % enemyVideos.length;
-            updateEnemySlide();
-        });
-
-        document.getElementById('nextEnemy').addEventListener('click', () => {
-            currentEnemy = (currentEnemy + 1) % enemyVideos.length;
-            updateEnemySlide();
-        });
-
-        function updateEnemySlide() {
-            enemyVideo.src = enemyVideos[currentEnemy].src;
-            enemyCaption.textContent = enemyVideos[currentEnemy].caption;
-            enemyVideo.load();
-            enemyVideo.play();
-        }
-
-        const uiVideos = [
-            { src: 'videos/Tiris/TutorialsVideo.mp4', caption: 'Tutorial Box: Shows keyboard or controller buttons depending on current input.' },
-            { src: 'videos/Tiris/LogosVideo.mp4', caption: 'Company Logos: Displayed using MediaPlayer and played in Blueprint sequences.' },
-            { src: 'videos/Tiris/IntroVideo.mp4', caption: 'Intro Cutscene: Fullscreen video with audio, played at the start of the game.' }
-        ];
-
-        let currentUI = 0;
-        const uiVideo = document.getElementById('uiVideo');
-        const uiCaption = document.getElementById('uiCaption');
-
-        document.getElementById('prevUI').addEventListener('click', () => {
-            currentUI = (currentUI - 1 + uiVideos.length) % uiVideos.length;
-            updateUISlide();
-        });
-
-        document.getElementById('nextUI').addEventListener('click', () => {
-            currentUI = (currentUI + 1) % uiVideos.length;
-            updateUISlide();
-        });
-
-        function updateUISlide() {
-            uiVideo.src = uiVideos[currentUI].src;
-            uiCaption.textContent = uiVideos[currentUI].caption;
-            uiVideo.load();
-            uiVideo.play();
-        }
-    </script>
-    <script>
-        function filterProjects(tag) {
-            const boxes = document.querySelectorAll('.project-box');
-            boxes.forEach(box => {
-                const tags = box.getAttribute('data-tags').split(' ');
-                if (tag === 'all' || tags.includes(tag)) {
-                    box.style.display = 'flex'; // Mostrar
-                } else {
-                    box.style.display = 'none'; // Ocultar
-                }
-            });
-
-            // Opcional: marcar botón activo visualmente
-            document.querySelectorAll('.filters button').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            const activeBtn = Array.from(document.querySelectorAll('.filters button')).find(btn =>
-                btn.textContent.toLowerCase().includes(tag)
-            );
-            if (activeBtn) activeBtn.classList.add('active');
-        }
-    </script>
-
-
-    <script src="matrix.js"></script>
-</body>
+    
+<dialog id="cvDialog" aria-labelledby="cvTitle"><form method="dialog"><button class="close-dialog" aria-label="Close / Cerrar">×</button></form><h2 id="cvTitle">Download CV</h2><p>Choose a language for your PDF.</p><div class="cv-options"><a class="btn download-btn" href="cv/CV_Marc_Folgado_ES.pdf" download lang="es">Español · PDF ↓</a><a class="btn secondary-btn" href="cv/CV_Marc_Folgado_EN.pdf" download lang="en">English · PDF ↓</a></div></dialog><script src="app.js" defer></script><script src="matrix.js" defer></script></body>
 </html>

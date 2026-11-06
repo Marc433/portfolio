@@ -1,46 +1,10 @@
-const canvas = document.createElement("canvas");
-canvas.id = "matrix";
-document.body.appendChild(canvas);
-
-const ctx = canvas.getContext("2d");
-canvas.style.position = "fixed";
-canvas.style.top = 0;
-canvas.style.left = 0;
-canvas.style.zIndex = -1;
-canvas.style.opacity = 0.15;
-canvas.style.pointerEvents = "none";
-
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
-
-const letters = "01";
-const fontSize = 16;
-const columns = Math.floor(window.innerWidth / fontSize);
-const drops = Array(columns).fill(1);
-
-function drawMatrix() {
-    // Ajusta opacidad para que la estela sea más larga (menos parpadeo)
-    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = "#0F0"; // Verde matrix
-    ctx.font = fontSize + "px monospace";
-
-    for (let i = 0; i < drops.length; i++) {
-        const text = letters.charAt(Math.floor(Math.random() * letters.length));
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        // Reiniciar caída con menos agresividad
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-            drops[i] = 0;
-        }
-
-        drops[i]++;
-    }
-}
-
-setInterval(drawMatrix, 50);
+(() => {
+ const motion=matchMedia('(prefers-reduced-motion: reduce)');
+ const canvas=document.createElement('canvas');canvas.id='matrix';canvas.setAttribute('aria-hidden','true');document.body.append(canvas);
+ const context=canvas.getContext('2d');if(!context)return;
+ let drops=[],timer=null;
+ function resize(){canvas.width=innerWidth;canvas.height=innerHeight;drops=Array(Math.ceil(innerWidth/20)).fill(1);}
+ function draw(){context.fillStyle='rgba(16,19,17,.12)';context.fillRect(0,0,canvas.width,canvas.height);context.fillStyle='#00ff88';context.font='14px monospace';drops.forEach((y,x)=>{context.fillText(Math.random()>.5?'1':'0',x*20,y*20);drops[x]=y*20>canvas.height&&Math.random()>.975?0:y+1;});}
+ function update(){clearInterval(timer);timer=null;if(!motion.matches&&!document.hidden)timer=setInterval(draw,80);}
+ resize();addEventListener('resize',resize);document.addEventListener('visibilitychange',update);motion.addEventListener('change',update);update();
+})();
