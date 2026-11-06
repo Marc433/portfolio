@@ -64,6 +64,7 @@ const returnButton=document.querySelector('.global-return');
 let lastCard=null;
 function route(){
  const id=location.hash.slice(1);const target=detailSections.find(s=>s.id===id);
+ const navId=target?'projects':(id||'home'); document.querySelectorAll('.navbar ul a').forEach(a=>{if(a.getAttribute('href')==='#'+navId)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
  document.querySelectorAll('video').forEach(v=>v.pause());
  detailSections.forEach(s=>s.classList.toggle('visible',s===target));
  homeSections.forEach(s=>s.hidden=Boolean(target));returnButton.hidden=!target;
